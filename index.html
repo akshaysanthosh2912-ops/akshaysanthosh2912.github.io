@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshai Santhosh | Portfolio</title>
+  <meta name="description" content="Portfolio of Akshai Santhosh — B.Tech CSE (AI) Student at Amal Jyothi College of Engineering. Explore projects, skills, and achievements." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Floating Particles Canvas ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== Navigation ===== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">&lt;AS /&gt;</a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+        <li><a href="#goals" class="nav-link">Goals</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Hero / Home ===== -->
+  <section id="home" class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge animate-in">
+        <i class="fas fa-microchip"></i> Open to Opportunities
+      </div>
+      <h1 class="hero-title animate-in">
+        Hi, I'm <span class="gradient-text">Akshai Santhosh</span>
+      </h1>
+      <p class="hero-tagline animate-in">
+        B.Tech CSE (AI) Student <span class="divider">|</span> Coder <span class="divider">|</span> Problem Solver
+      </p>
+      <p class="hero-description animate-in">
+        First-year B.Tech student at <strong>Amal Jyothi College of Engineering</strong>, pursuing
+        Computer Science &amp; Technology (Artificial Intelligence). I'm passionate about coding,
+        problem solving, and building projects that challenge me to grow every day.
+      </p>
+      <div class="hero-cta animate-in">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-rocket"></i> View Projects
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-paper-plane"></i> Get in Touch
+        </a>
+        <a href="#" class="btn btn-ghost" id="resume-btn">
+          <i class="fas fa-download"></i> Resume
+        </a>
+      </div>
+      <div class="hero-stats animate-in">
+        <div class="stat">
+          <span class="stat-number" data-target="5">0</span>+
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="8">0</span>+
+          <span class="stat-label">Skills</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="3">0</span>+
+          <span class="stat-label">Certifications</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ===== About Me ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title animate-in">
+        <span class="section-number">01.</span> About Me
+      </h2>
+      <div class="about-grid">
+        <div class="about-image animate-in">
+          <div class="image-frame">
+            <div class="image-placeholder">
+              <i class="fas fa-user-astronaut"></i>
+            </div>
+            <div class="image-border"></div>
+          </div>
+          <div class="about-status">
+            <span class="status-dot"></span> Available for Collaborations
+          </div>
+        </div>
+        <div class="about-content animate-in">
+          <h3>A Curious Mind Building the Future</h3>
+          <p>
+            I'm <strong>Akshai Santhosh</strong>, a first-year B.Tech student pursuing
+            <strong>Computer Science &amp; Technology (Artificial Intelligence)</strong> at
+            <strong>Amal Jyothi College of Engineering</strong>. My journey into tech started
+            with curiosity and a "Hello, World!" — and I've been hooked ever since.
+          </p>
+          <p>
+            I love <strong>coding, problem solving, and exploring new technologies</strong>.
+            Every project I take on teaches me something new, and I'm constantly pushing
+            myself to learn and grow as a developer.
+          </p>
+          <p>
+            When I'm not writing code, you'll find me participating in hackathons,
+            solving coding challenges, or diving into online courses. I'm always eager
+            to collaborate and build things that matter.
+          </p>
+          <div class="about-details">
+            <div class="detail-item">
+              <i class="fas fa-graduation-cap"></i>
+              <div>
+                <strong>Education</strong>
+                <span>B.Tech CSE (AI) — 1st Year</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-university"></i>
+              <div>
+                <strong>College</strong>
+                <span>Amal Jyothi College of Engineering</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-heart"></i>
+              <div>
+                <strong>Interests</strong>
+                <span>Coding, Problem Solving, AI, Tech</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-bullseye"></i>
+              <div>
+                <strong>Goal</strong>
+                <span>Become a Skilled AI Developer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title animate-in">
+        <span class="section-number">02.</span> Skills & Tools
+      </h2>
+      <p class="section-subtitle animate-in">Technologies I work with and continuously learn</p>
+
+      <div class="skills-grid">
+        <!-- Programming Languages -->
+        <div class="skill-category animate-in">
+          <div class="skill-category-header">
+            <div class="skill-icon-wrap"><i class="fas fa-code"></i></div>
+            <h3>Programming Languages</h3>
+          </div>
+          <div class="skill-tags">
+            <div class="skill-tag" data-level="75">
+              <i class="fab fa-python"></i> Python
+              <div class="skill-progress"><div class="skill-bar" style="--progress:75%"></div></div>
+            </div>
+            <div class="skill-tag" data-level="70">
+              <i class="fas fa-c"></i> C
+              <div class="skill-progress"><div class="skill-bar" style="--progress:70%"></div></div>
+            </div>
+            <div class="skill-tag" data-level="65">
+              <i class="fas fa-code"></i> C++
+              <div class="skill-progress"><div class="skill-bar" style="--progress:65%"></div></div>
+            </div>
+            <div class="skill-tag" data-level="60">
+              <i class="fas fa-database"></i> MySQL
+              <div class="skill-progress"><div class="skill-bar" style="--progress:60%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="skill-category animate-in">
+          <div class="skill-category-header">
+            <div class="skill-icon-wrap"><i class="fas fa-tools"></i></div>
+            <h3>Tools & Technologies</h3>
+          </div>
+          <div class="skill-tags">
+            <div class="skill-tag" data-level="80">
+              <i class="fas fa-laptop-code"></i> VS Code
+              <div class="skill-progress"><div class="skill-bar" style="--progress:80%"></div></div>
+            </div>
+            <div class="skill-tag" data-level="70">
+              <i class="fas fa-book"></i> Jupyter Notebook
+              <div class="skill-progress"><div class="skill-bar" style="--progress:70%"></div></div>
+            </div>
+            <div class="skill-tag" data-level="60">
+              <i class="fab fa-git-alt"></i> Git &amp; GitHub
+              <div class="skill-progress"><div class="skill-bar" style="--progress:60%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category animate-in">
+          <div class="skill-category-header">
+            <div class="skill-icon-wrap"><i class="fas fa-brain"></i></div>
+            <h3>Soft Skills</h3>
+          </div>
+          <div class="skill-tags soft-skills">
+            <div class="soft-skill-item">
+              <div class="soft-icon"><i class="fas fa-puzzle-piece"></i></div>
+              <span>Problem Solving</span>
+            </div>
+            <div class="soft-skill-item">
+              <div class="soft-icon"><i class="fas fa-users"></i></div>
+              <span>Team Collaboration</span>
+            </div>
+            <div class="soft-skill-item">
+              <div class="soft-icon"><i class="fas fa-lightbulb"></i></div>
+              <span>Creative Thinking</span>
+            </div>
+            <div class="soft-skill-item">
+              <div class="soft-icon"><i class="fas fa-comments"></i></div>
+              <span>Communication</span>
+            </div>
+            <div class="soft-skill-item">
+              <div class="soft-icon"><i class="fas fa-clock"></i></div>
+              <span>Time Management</span>
+            </div>
+            <div class="soft-skill-item">
+              <div class="soft-icon"><i class="fas fa-book-reader"></i></div>
+              <span>Quick Learner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title animate-in">
+        <span class="section-number">03.</span> Projects
+      </h2>
+
+      <!-- Tab Switcher -->
+      <div class="project-tabs animate-in">
+        <button class="tab-btn active" data-tab="working">
+          <i class="fas fa-check-circle"></i> Working Projects
+        </button>
+        <button class="tab-btn" data-tab="ideas">
+          <i class="fas fa-lightbulb"></i> Innovation Ideas
+        </button>
+      </div>
+
+      <!-- Working Projects -->
+      <div id="tab-working" class="tab-content active">
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card animate-in">
+            <div class="project-card-header">
+              <div class="project-icon"><i class="fas fa-wallet"></i></div>
+              <div class="project-links">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Trip Budget Guessing</h3>
+            <p class="project-desc">
+              A Python application that helps users estimate and plan their trip budgets.
+              Takes inputs like destination, duration, and preferences to calculate
+              an approximate budget with breakdowns for transport, food, and stay.
+            </p>
+            <div class="project-meta">
+              <span class="project-contribution">
+                <i class="fas fa-user"></i> Solo Developer
+              </span>
+            </div>
+            <div class="project-tech">
+              <span>Python</span><span>Logic Building</span><span>User Input</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card animate-in">
+            <div class="project-card-header">
+              <div class="project-icon"><i class="fas fa-question-circle"></i></div>
+              <div class="project-links">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Quiz Game</h3>
+            <p class="project-desc">
+              An interactive quiz game built in C programming. Features multiple-choice
+              questions, score tracking, and difficulty levels. Demonstrates strong
+              understanding of control flow, arrays, and file handling in C.
+            </p>
+            <div class="project-meta">
+              <span class="project-contribution">
+                <i class="fas fa-user"></i> Solo Developer
+              </span>
+            </div>
+            <div class="project-tech">
+              <span>C</span><span>Arrays</span><span>Control Flow</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card animate-in">
+            <div class="project-card-header">
+              <div class="project-icon"><i class="fas fa-robot"></i></div>
+              <div class="project-links">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Simple Chatbot</h3>
+            <p class="project-desc">
+              A conversational chatbot built using Python that responds to user queries
+              with predefined answers. Uses basic NLP concepts like keyword matching
+              and pattern recognition to simulate intelligent conversation.
+            </p>
+            <div class="project-meta">
+              <span class="project-contribution">
+                <i class="fas fa-user"></i> Solo Developer
+              </span>
+            </div>
+            <div class="project-tech">
+              <span>Python</span><span>NLP Basics</span><span>String Processing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Innovation Ideas -->
+      <div id="tab-ideas" class="tab-content">
+        <div class="ideas-grid">
+          <!-- Idea 1 -->
+          <div class="idea-card animate-in">
+            <div class="idea-number">01</div>
+            <div class="idea-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <h3>Teacher Available or Not</h3>
+            <div class="idea-section">
+              <h4><i class="fas fa-exclamation-circle"></i> Problem</h4>
+              <p>Students often waste time walking to a teacher's office only to find them unavailable. There's no easy way to check a teacher's real-time availability on campus.</p>
+            </div>
+            <div class="idea-section">
+              <h4><i class="fas fa-check-circle"></i> Proposed Solution</h4>
+              <p>A Python-based system where teachers can update their availability status in real-time. Students can check via a simple interface whether a teacher is available, in class, or on leave.</p>
+            </div>
+            <div class="idea-section">
+              <h4><i class="fas fa-arrow-right"></i> Future Scope</h4>
+              <p>Integration with college timetable systems, mobile app notifications, appointment booking features, and AI-based availability prediction using historical patterns.</p>
+            </div>
+            <div class="idea-tech">
+              <span>Python</span><span>Database</span><span>Flask</span><span>Scheduling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Achievements ===== -->
+  <section id="achievements" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title animate-in">
+        <span class="section-number">04.</span> Achievements & Learning
+      </h2>
+      <div class="achievements-grid">
+        <!-- Education -->
+        <div class="achievement-category animate-in">
+          <div class="achievement-header">
+            <div class="achievement-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Education</h3>
+          </div>
+          <div class="achievement-list">
+            <div class="achievement-item">
+              <div class="achievement-badge"><i class="fas fa-university"></i></div>
+              <div>
+                <strong>B.Tech CSE (Artificial Intelligence)</strong>
+                <span>Amal Jyothi College of Engineering — 1st Year</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hackathons -->
+        <div class="achievement-category animate-in">
+          <div class="achievement-header">
+            <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+            <h3>Hackathons</h3>
+          </div>
+          <div class="achievement-list">
+            <div class="achievement-item">
+              <div class="achievement-badge event"><i class="fas fa-star"></i></div>
+              <div>
+                <strong>Smart India Hackathon (SIH)</strong>
+                <span>Participant — India's largest national-level hackathon</span>
+              </div>
+            </div>
+            <div class="achievement-item">
+              <div class="achievement-badge event"><i class="fas fa-star"></i></div>
+              <div>
+                <strong>NASA Space Apps Challenge</strong>
+                <span>Participant — Global space hackathon by NASA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Learning -->
+        <div class="achievement-category animate-in">
+          <div class="achievement-header">
+            <div class="achievement-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Continuous Learning</h3>
+          </div>
+          <div class="achievement-list">
+            <div class="achievement-item">
+              <div class="achievement-badge"><i class="fas fa-certificate"></i></div>
+              <div>
+                <strong>Self-Learning Journey</strong>
+                <span>Actively learning AI/ML, Python, and web development</span>
+              </div>
+            </div>
+            <div class="achievement-item">
+              <div class="achievement-badge"><i class="fas fa-code"></i></div>
+              <div>
+                <strong>Coding Practice</strong>
+                <span>Regular problem solving and project building</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Future Goals ===== -->
+  <section id="goals" class="section">
+    <div class="container">
+      <h2 class="section-title animate-in">
+        <span class="section-number">05.</span> Future Goals
+      </h2>
+      <p class="section-subtitle animate-in">Where I see myself heading next — my roadmap for growth</p>
+      <div class="goals-timeline">
+        <div class="timeline-line"></div>
+        <div class="goal-item animate-in">
+          <div class="goal-dot"></div>
+          <div class="goal-card">
+            <div class="goal-period">Short Term <span>6 months</span></div>
+            <h3><i class="fas fa-laptop-code"></i> Master Core Programming</h3>
+            <p>Strengthen fundamentals in C, Python, and data structures. Complete advanced courses on algorithms and competitive programming.</p>
+          </div>
+        </div>
+        <div class="goal-item animate-in">
+          <div class="goal-dot"></div>
+          <div class="goal-card">
+            <div class="goal-period">Medium Term <span>1-2 years</span></div>
+            <h3><i class="fas fa-brain"></i> Deep Dive into AI/ML</h3>
+            <p>Build real-world ML projects, contribute to open-source AI tools, and explore computer vision and natural language processing.</p>
+          </div>
+        </div>
+        <div class="goal-item animate-in">
+          <div class="goal-dot"></div>
+          <div class="goal-card">
+            <div class="goal-period">Medium Term <span>2-3 years</span></div>
+            <h3><i class="fas fa-project-diagram"></i> Build Impactful Projects</h3>
+            <p>Develop full-stack applications that solve real problems. Participate in national-level hackathons and secure internships at top tech companies.</p>
+          </div>
+        </div>
+        <div class="goal-item animate-in">
+          <div class="goal-dot"></div>
+          <div class="goal-card">
+            <div class="goal-period">Long Term <span>4+ years</span></div>
+            <h3><i class="fas fa-rocket"></i> Innovate & Lead</h3>
+            <p>Launch a tech startup or lead engineering teams at innovative companies. Create technology that positively impacts millions of lives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title animate-in">
+        <span class="section-number">06.</span> Get in Touch
+      </h2>
+      <p class="section-subtitle animate-in">
+        Have a project idea, collaboration opportunity, or just want to say hello? I'd love to hear from you!
+      </p>
+      <div class="contact-grid">
+        <div class="contact-info animate-in">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:akshaysanthosh2912@gmail.com">akshaysanthosh2912@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div>
+              <h4>LinkedIn</h4>
+              <a href="https://linkedin.com/in/akshaisanthosh" target="_blank" rel="noopener">linkedin.com/in/akshaisanthosh</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <h4>GitHub</h4>
+              <a href="https://github.com/akshaisanthosh" target="_blank" rel="noopener">github.com/akshaisanthosh</a>
+            </div>
+          </div>
+        </div>
+        <form id="contact-form" class="contact-form animate-in">
+          <div class="form-group">
+            <input type="text" id="name-input" placeholder=" " required />
+            <label for="name-input">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email-input" placeholder=" " required />
+            <label for="email-input">Your Email</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message-input" placeholder=" " rows="5" required></textarea>
+            <label for="message-input">Your Message</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="#home" class="footer-logo">&lt;AS /&gt;</a>
+        <p>Designed & Built by Akshai Santhosh &copy; 2026</p>
+        <div class="footer-socials">
+          <a href="https://github.com/akshaisanthosh" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/akshaisanthosh" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:akshaysanthosh2912@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
