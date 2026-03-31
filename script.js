@@ -131,15 +131,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ─── Contact Form (Demo) ───
+  // ─── Contact Form ───
   const contactForm = document.getElementById('contact-form');
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-    btn.style.background = 'var(--accent-2)';
+    
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/akshaisanthosh9709@outlook.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            name: document.getElementById('name-input').value,
+            email: document.getElementById('email-input').value,
+            message: document.getElementById('message-input').value,
+            _subject: "New Message from Portfolio Website!"
+        })
+      });
+
+      if (response.ok) {
+        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+        btn.style.background = 'var(--accent-2)';
+      } else {
+        btn.innerHTML = '<i class="fas fa-times"></i> Failed to send';
+        btn.style.background = '#ff4d4d';
+      }
+    } catch (error) {
+      btn.innerHTML = '<i class="fas fa-times"></i> Error occurred';
+      btn.style.background = '#ff4d4d';
+    }
 
     setTimeout(() => {
       btn.innerHTML = originalHTML;
