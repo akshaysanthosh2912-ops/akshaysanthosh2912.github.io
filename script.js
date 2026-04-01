@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.disabled = true;
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/akshaisanthosh9709@outlook.com", {
+      const response = await fetch("https://formsubmit.co/ajax/akshaysanthosh2912@gmail.com", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
