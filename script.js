@@ -142,29 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.disabled = true;
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/akshaysanthosh2912@gmail.com", {
-        method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            name: document.getElementById('name-input').value,
-            email: document.getElementById('email-input').value,
-            message: document.getElementById('message-input').value,
-            _subject: "New Message from Portfolio Website!"
-        })
-      });
+      // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS IDs
+      // Create them in your EmailJS dashboard under Email Services & Email Templates
+      await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', '#contact-form');
 
-      if (response.ok) {
-        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        btn.style.background = 'var(--accent-2)';
-      } else {
-        btn.innerHTML = '<i class="fas fa-times"></i> Failed to send';
-        btn.style.background = '#ff4d4d';
-      }
+      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+      btn.style.background = 'var(--accent-2)';
     } catch (error) {
-      btn.innerHTML = '<i class="fas fa-times"></i> Error occurred';
+      btn.innerHTML = '<i class="fas fa-times"></i> Failed to send';
       btn.style.background = '#ff4d4d';
     }
 
