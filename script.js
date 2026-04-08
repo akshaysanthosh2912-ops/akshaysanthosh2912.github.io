@@ -142,13 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.disabled = true;
 
     try {
-      // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS IDs
-      // Create them in your EmailJS dashboard under Email Services & Email Templates
-      await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', '#contact-form');
+      // Send form using EmailJS service ID, template ID, and explicit public key
+      await emailjs.sendForm('service_rcz156m', 'template_6j7way7', contactForm, {
+        publicKey: 'I6N_X6w9ooTRXhF-q'
+      });
 
       btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
       btn.style.background = 'var(--accent-2)';
     } catch (error) {
+      console.error('EmailJS Error:', error);
+      alert('Failed to send: ' + (error.text || error.message || 'Unknown error'));
       btn.innerHTML = '<i class="fas fa-times"></i> Failed to send';
       btn.style.background = '#ff4d4d';
     }
