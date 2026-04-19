@@ -188,6 +188,37 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = '';
     });
   });
+
+  // ─── Modal Functions ───
+  window.openModal = function(imageSrc, captionText) {
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const caption = document.getElementById('modal-caption');
+    
+    modal.style.display = 'block';
+    modalImg.src = imageSrc;
+    caption.innerText = captionText;
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeModal = function() {
+    const modal = document.getElementById('image-modal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  };
+
+  window.addEventListener('click', (e) => {
+    const modal = document.getElementById('image-modal');
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
 });
 
 // ===================================================================

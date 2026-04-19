@@ -27,6 +27,7 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
         <li><a href="#achievements" class="nav-link">Achievements</a></li>
         <li><a href="#goals" class="nav-link">Goals</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -374,11 +375,53 @@
     </div>
   </section>
 
-  <!-- ===== Achievements ===== -->
-  <section id="achievements" class="section section-alt">
+  <!-- ===== Certificates ===== -->
+  <section id="certificates" class="section section-alt">
     <div class="container">
       <h2 class="section-title animate-in">
-        <span class="section-number">04.</span> Achievements & Learning
+        <span class="section-number">04.</span> Certificates
+      </h2>
+      <p class="section-subtitle animate-in">Here are my latest certifications and awards</p>
+      <div class="certificates-grid">
+        <!-- Certificate 1 -->
+        <div class="certificate-card animate-in" onclick="openModal('cert1.jpg', 'NASA Space Apps Challenge 2025')">
+          <div class="certificate-image">
+            <img src="cert1.jpg" alt="NASA Space Apps Challenge 2025" />
+            <div class="certificate-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <h3 class="certificate-title">NASA Space Apps Challenge 2025</h3>
+        </div>
+        <!-- Certificate 2 -->
+        <div class="certificate-card animate-in" onclick="openModal('cert2.jpg', 'Smart India Hackathon 2025')">
+          <div class="certificate-image">
+            <img src="cert2.jpg" alt="Smart India Hackathon 2025" />
+            <div class="certificate-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <h3 class="certificate-title">Smart India Hackathon 2025</h3>
+        </div>
+        <!-- Certificate 3 -->
+        <div class="certificate-card animate-in" onclick="openModal('cert3.jpg', 'Your Pathway to App Development')">
+          <div class="certificate-image">
+            <img src="cert3.jpg" alt="Your Pathway to App Development" />
+            <div class="certificate-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <h3 class="certificate-title">Your Pathway to App Dev</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Achievements ===== -->
+  <section id="achievements" class="section">
+    <div class="container">
+      <h2 class="section-title animate-in">
+        <span class="section-number">05.</span> Achievements & Learning
       </h2>
       <div class="achievements-grid">
         <!-- Education -->
@@ -450,10 +493,10 @@
   </section>
 
   <!-- ===== Future Goals ===== -->
-  <section id="goals" class="section">
+  <section id="goals" class="section section-alt">
     <div class="container">
       <h2 class="section-title animate-in">
-        <span class="section-number">05.</span> Future Goals
+        <span class="section-number">06.</span> Future Goals
       </h2>
       <p class="section-subtitle animate-in">Where I see myself heading next — my roadmap for growth</p>
       <div class="goals-timeline">
@@ -495,10 +538,10 @@
   </section>
 
   <!-- ===== Contact ===== -->
-  <section id="contact" class="section section-alt">
+  <section id="contact" class="section">
     <div class="container">
       <h2 class="section-title animate-in">
-        <span class="section-number">06.</span> Get in Touch
+        <span class="section-number">07.</span> Get in Touch
       </h2>
       <p class="section-subtitle animate-in">
         Have a project idea, collaboration opportunity, or just want to say hello? I'd love to hear from you!
@@ -547,6 +590,13 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== Image Modal ===== -->
+  <div id="image-modal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img" alt="Certificate Preview">
+    <div id="modal-caption"></div>
+  </div>
 
   <!-- ===== Footer ===== -->
   <footer class="footer">
