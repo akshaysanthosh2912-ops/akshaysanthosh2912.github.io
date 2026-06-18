@@ -142,17 +142,29 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.disabled = true;
 
     try {
-      // Send form using EmailJS service ID, template ID, and explicit public key
-      await emailjs.sendForm('service_rcz156m', 'template_6j7way7', contactForm, {
-        publicKey: 'I6N_X6w9ooTRXhF-q'
+      const response = await fetch("https://formsubmit.co/ajax/akshaysanthosh2912@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            name: document.getElementById('name-input').value,
+            email: document.getElementById('email-input').value,
+            message: document.getElementById('message-input').value,
+            _subject: "New Message from Portfolio Website!"
+        })
       });
 
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      btn.style.background = 'var(--accent-2)';
+      if (response.ok) {
+        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+        btn.style.background = 'var(--accent-2)';
+      } else {
+        btn.innerHTML = '<i class="fas fa-times"></i> Failed to send';
+        btn.style.background = '#ff4d4d';
+      }
     } catch (error) {
-      console.error('EmailJS Error:', error);
-      alert('Failed to send: ' + (error.text || error.message || 'Unknown error'));
-      btn.innerHTML = '<i class="fas fa-times"></i> Failed to send';
+      btn.innerHTML = '<i class="fas fa-times"></i> Error occurred';
       btn.style.background = '#ff4d4d';
     }
 
@@ -187,37 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('mouseleave', () => {
       card.style.transform = '';
     });
-  });
-
-  // ─── Modal Functions ───
-  window.openModal = function(imageSrc, captionText) {
-    const modal = document.getElementById('image-modal');
-    const modalImg = document.getElementById('modal-img');
-    const caption = document.getElementById('modal-caption');
-    
-    modal.style.display = 'block';
-    modalImg.src = imageSrc;
-    caption.innerText = captionText;
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.closeModal = function() {
-    const modal = document.getElementById('image-modal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  };
-
-  window.addEventListener('click', (e) => {
-    const modal = document.getElementById('image-modal');
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
   });
 });
 
