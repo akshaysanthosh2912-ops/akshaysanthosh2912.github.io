@@ -1,0 +1,15 @@
+# Task Checklist
+- [ ] Open the portfolio website local URL (Note: file:/// access is blocked, trying http://localhost instead)
+- [ ] Wait 4 seconds for boot animation/loading screen
+- [ ] Verify the 3D humanoid robot is rendered on screen
+- [ ] Click on "[ HEAD : ABOUT ]" floating label or the navbar 'About' button
+- [ ] Wait 2 seconds for panel zoom-in transition
+- [ ] Verify the Biographical panel is visible and capture a screenshot
+- [ ] Close the panel (click close button or 'Home' button)
+- [ ] Wait 1 second and verify returning to home state
+- [ ] Return success report
+
+# Findings
+- Access to file:///c:/Users/LOQ/antigravity/index.html is blocked by the browser.
+- http://localhost:8080 refused to connect. Trying other ports (8000, 3000, 5000, 5173, etc.).
+

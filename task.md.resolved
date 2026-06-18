@@ -1,0 +1,14 @@
+# Project Progress Checklist
+
+- [x] Modify `index.html` to set up 3D canvas, overlays, and glassmorphism panel containers
+- [x] Update `style.css` to add dark futuristic styling, neon glowing variables, and holographic glass panels
+- [x] Implement Three.js scene setup and custom shaders/materials in `script.js`
+- [x] Create 3D humanoid robot primitives (Head with transparent brain particle grid, Chest plates, Stomach Energy Core, Arms/Hand, Legs) in `script.js`
+- [x] Add dynamic vortex particle galaxy background in Three.js
+- [x] Implement piece-by-piece assembly animations and camera movement with GSAP
+- [x] Create custom energy orb cursor with smooth canvas particle trail
+- [x] Set up interactive Raycaster detection for the 8 body parts
+- [x] Build dynamic synthesizers (Web Audio API) for retro-futuristic sound effects on hover/click
+- [x] Implement the AI Voice Assistant welcome and narration features
+- [x] Integrate existing content sections (About, Skills, Projects, Certificates vault, Resume timeline, Contact console, Future Goals cards) into corresponding holographic panels
+- [x] Perform browser verification and optimizations (responsiveness, memory management, event cleanups)

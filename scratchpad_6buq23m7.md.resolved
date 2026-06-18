@@ -1,0 +1,9 @@
+# Portfolio Website Verification Checklist
+- [x] Open http://localhost:8000/index.html
+- [x] Wait for boot sequence (4 seconds)
+- [x] Verify 3D robot scene is rendered
+- [x] Click 'About' or '[ HEAD : ABOUT ]' tag
+- [x] Wait 2 seconds and verify panel is visible
+- [x] Capture screenshot of the panel
+- [x] Click close button or 'Home' button
+- [x] Wait 1 second and complete
