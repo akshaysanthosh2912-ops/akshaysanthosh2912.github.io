@@ -11,6 +11,24 @@ let hoveredNode = null;
 let activeNode = null;
 let currentState = 'orbit'; // 'orbit' or 'zoomed'
 let isLoaded = false;
+let gfxMode = 'ultra';      // 'ultra' or 'eco'
+let isMobile = false;
+let isLoopRunning = true;
+let voiceRecognition = null;
+
+// Auto-detect mobile devices and initialize graphics state
+function detectMobileDevice() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) || (isTouch && window.innerWidth < 992);
+  
+  if (isMobile) {
+    gfxMode = 'eco';
+    document.body.classList.add('mobile-device');
+  } else {
+    gfxMode = 'ultra';
+  }
+}
 
 // Dynamic positions mapping for 3D coordinate projection
 const nodeCoordinates = {
@@ -264,9 +282,11 @@ function initThree() {
   scene.add(camera);
 
   // Renderer
+  detectMobileDevice();
   renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.35)); // Cap pixel ratio to 1.35 for high performance on high-DPI screens
+  const maxDPR = gfxMode === 'eco' ? 1.0 : 1.35;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDPR));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
 
@@ -310,7 +330,7 @@ function initThree() {
    3D BACKGROUND PARTICLE GALAXY
    =================================================================== */
 function buildGalaxyBackground() {
-  const particleCount = 1300;
+  const particleCount = gfxMode === 'eco' ? 350 : 1300;
   const geometry = new THREE.BufferGeometry();
   const positions = new Float32Array(particleCount * 3);
   const colors = new Float32Array(particleCount * 3);
@@ -719,6 +739,7 @@ function assembleRobot() {
    ANIMATION TICK LOOP
    =================================================================== */
 function animate(time) {
+  if (!isLoopRunning) return;
   requestAnimationFrame(animate);
 
   const t = time * 0.001;
@@ -754,11 +775,62 @@ function animate(time) {
   renderer.render(scene, camera);
 }
 
+// Loop rendering manager to pause WebGL CPU consumption when details are loaded
+function startLoop() {
+  if (!isLoopRunning) {
+    isLoopRunning = true;
+    requestAnimationFrame(animate);
+  }
+}
+
+function stopLoop() {
+  isLoopRunning = false;
+}
+
+// GFX Mode controls
+function toggleGfxMode() {
+  gfxMode = gfxMode === 'ultra' ? 'eco' : 'ultra';
+  
+  // Re-configure renderer pixel ratio
+  const maxDPR = gfxMode === 'eco' ? 1.0 : 1.35;
+  if (renderer) {
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDPR));
+  }
+  
+  // Re-build galaxy with optimized particle counts
+  rebuildGalaxyBackground();
+  
+  // Update button classes
+  const gfxBtn = document.getElementById('gfx-toggle');
+  if (gfxBtn) {
+    gfxBtn.classList.toggle('eco-active', gfxMode === 'eco');
+    gfxBtn.innerHTML = gfxMode === 'eco' ? '<i class="fas fa-leaf"></i>' : '<i class="fas fa-bolt"></i>';
+  }
+  
+  // Play click audio feedback
+  synth.playClick();
+  
+  if (voice.enabled) {
+    voice.speak(`Graphics quality set to ${gfxMode === 'eco' ? 'efficiency' : 'high definition'}.`);
+  }
+}
+
+function rebuildGalaxyBackground() {
+  if (starfieldGalaxy && scene) {
+    scene.remove(starfieldGalaxy);
+    starfieldGalaxy.geometry.dispose();
+    starfieldGalaxy.material.dispose();
+  }
+  buildGalaxyBackground();
+}
+
 // Window resizing
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  const maxDPR = gfxMode === 'eco' ? 1.0 : 1.35;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDPR));
 }
 
 /* ===================================================================
@@ -1113,6 +1185,7 @@ function resetHover(nodeName) {
 
 // Camera transition zoom logic
 function zoomToNode(nodeName) {
+  startLoop(); // Ensure rendering loop is active during camera flight transition
   currentState = 'zoomed';
   activeNode = nodeName;
   controls.enabled = false; // Disable orbit drags while viewing details
@@ -1136,7 +1209,11 @@ function zoomToNode(nodeName) {
       y: targetFocus.target.y,
       z: targetFocus.target.z,
       duration: 1.6,
-      ease: "power2.inOut"
+      ease: "power2.inOut",
+      onComplete: () => {
+        // Once camera zoom completes, pause rendering loop to save mobile performance
+        stopLoop();
+      }
     });
   }
 
@@ -1145,6 +1222,11 @@ function zoomToNode(nodeName) {
 
   // Toggle active styling on navigation navbar links
   document.querySelectorAll('.nav-link-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.node === nodeName);
+  });
+  
+  // Toggle active styling on mobile overlay menu links too
+  document.querySelectorAll('.mobile-link-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.node === nodeName);
   });
 
@@ -1158,6 +1240,8 @@ function zoomToNode(nodeName) {
 // Zoom out back to normal orbit coordinates
 function zoomOut() {
   if (currentState !== 'zoomed') return;
+
+  startLoop(); // Resume animation loop for zoom out camera transition
 
   synth.playClose();
   if (voice.enabled) voice.speak(voiceNarration.reset);
@@ -1196,6 +1280,11 @@ function zoomOut() {
 
   // Re-highlight navbar Home button
   document.querySelectorAll('.nav-link-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.node === 'home');
+  });
+
+  // Re-highlight mobile overlay Home button
+  document.querySelectorAll('.mobile-link-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.node === 'home');
   });
 }
@@ -1245,9 +1334,104 @@ function setupUIEvents() {
     voice.enabled = !voice.enabled;
     voiceBtn.classList.toggle('active', voice.enabled);
     synth.playClick();
-    if (voice.enabled) {
-      voice.speak("AI Voice Assistant enabled.");
+    
+    // Toggle HUD display card
+    const voiceCard = document.getElementById('hud-voice-card');
+    if (voiceCard) {
+      voiceCard.style.display = voice.enabled ? 'block' : 'none';
     }
+
+    if (voice.enabled) {
+      voice.speak("Voice recognition link engaged.");
+      
+      // Lazily initialize voice controller
+      if (!voiceRecognition) {
+        initVoiceAssistant();
+      }
+      
+      // Start listening
+      if (voiceRecognition) {
+        try {
+          voiceRecognition.start();
+        } catch (e) {
+          // Already listening
+        }
+      }
+    } else {
+      voice.speak("Voice recognition link terminated.");
+      if (voiceRecognition) {
+        try {
+          voiceRecognition.stop();
+        } catch (e) {
+          // Already stopped
+        }
+      }
+      updateVoiceHUDStatus("STANDBY", "pulse-dot-purple");
+    }
+  });
+
+  // GFX Performance Toggle
+  const gfxBtn = document.getElementById('gfx-toggle');
+  if (gfxBtn) {
+    if (gfxMode === 'eco') {
+      gfxBtn.classList.add('eco-active');
+      gfxBtn.innerHTML = '<i class="fas fa-leaf"></i>';
+    }
+    gfxBtn.addEventListener('click', () => {
+      toggleGfxMode();
+    });
+  }
+
+  // Mobile Hamburger Menu Toggle
+  const mobileToggle = document.getElementById('mobile-nav-toggle');
+  const mobileClose = document.getElementById('mobile-menu-close');
+  const mobileOverlay = document.getElementById('mobile-menu-overlay');
+
+  if (mobileToggle && mobileOverlay) {
+    mobileToggle.addEventListener('click', () => {
+      synth.playClick();
+      const isOpen = mobileOverlay.classList.contains('open');
+      if (isOpen) {
+        mobileOverlay.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      } else {
+        mobileOverlay.classList.add('open');
+        mobileToggle.classList.add('open');
+      }
+    });
+  }
+
+  if (mobileClose && mobileOverlay && mobileToggle) {
+    mobileClose.addEventListener('click', () => {
+      synth.playClose();
+      mobileOverlay.classList.remove('open');
+      mobileToggle.classList.remove('open');
+    });
+  }
+
+  // Mobile Overlay Link click handlers
+  document.querySelectorAll('.mobile-link-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetNode = btn.dataset.node;
+      
+      // Close overlay menu
+      if (mobileOverlay && mobileToggle) {
+        mobileOverlay.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }
+
+      if (targetNode === 'home') {
+        zoomOut();
+      } else {
+        if (currentState === 'zoomed' && activeNode !== targetNode) {
+          const prevPanel = document.getElementById(`panel-${activeNode}`);
+          if (prevPanel) prevPanel.classList.remove('active');
+          zoomToNode(targetNode);
+        } else if (currentState === 'orbit') {
+          zoomToNode(targetNode);
+        }
+      }
+    });
   });
 
   // Projects Inner Tabs
@@ -1340,3 +1524,114 @@ window.addEventListener('keydown', (e) => {
     }
   }
 });
+
+/* ===================================================================
+   NATIVE SPEECH RECOGNITION COMMAND LISTENERS
+   =================================================================== */
+function initVoiceAssistant() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    console.warn("Speech Recognition not supported on this browser context.");
+    const voiceCard = document.getElementById('hud-voice-card');
+    if (voiceCard) voiceCard.style.display = 'none';
+    return;
+  }
+
+  voiceRecognition = new SpeechRecognition();
+  voiceRecognition.continuous = true;
+  voiceRecognition.interimResults = false;
+  voiceRecognition.lang = 'en-US';
+
+  voiceRecognition.onstart = () => {
+    updateVoiceHUDStatus("LISTENING", "pulse-dot-green");
+  };
+
+  voiceRecognition.onresult = (event) => {
+    const lastResultIndex = event.results.length - 1;
+    const commandText = event.results[lastResultIndex][0].transcript.trim().toLowerCase();
+    console.log("Voice Command Recognized:", commandText);
+    
+    updateVoiceHUDStatus("PROCESSING...", "pulse-dot-purple");
+    processVoiceCommand(commandText);
+    
+    setTimeout(() => {
+      if (voiceRecognition && voice.enabled) {
+        updateVoiceHUDStatus("LISTENING", "pulse-dot-green");
+      }
+    }, 1500);
+  };
+
+  voiceRecognition.onerror = (event) => {
+    console.error("Speech Recognition Error:", event.error);
+    if (event.error === 'not-allowed') {
+      voice.enabled = false;
+      updateVoiceHUDStatus("MIC BLOCKED", "pulse-dot-red");
+      const voiceBtn = document.getElementById('voice-assistant');
+      if (voiceBtn) voiceBtn.classList.remove('active');
+      voice.speak("Microphone access was denied. Please check your browser settings.");
+    }
+  };
+
+  voiceRecognition.onend = () => {
+    if (voice.enabled && voiceRecognition) {
+      try {
+        voiceRecognition.start();
+      } catch (e) {
+        // Already starting
+      }
+    } else {
+      updateVoiceHUDStatus("STANDBY", "pulse-dot-purple");
+    }
+  };
+}
+
+function updateVoiceHUDStatus(text, dotClass) {
+  const voiceStatus = document.getElementById('hud-voice-status');
+  if (voiceStatus) {
+    let dotColor = 'var(--neon-purple)';
+    if (dotClass === 'pulse-dot-green') dotColor = 'var(--neon-green)';
+    if (dotClass === 'pulse-dot-red') dotColor = 'var(--neon-magenta)';
+    
+    voiceStatus.innerHTML = `<span style="width:6px; height:6px; background:${dotColor}; border-radius:50%; box-shadow: 0 0 8px ${dotColor}; display:inline-block; margin-right:6px; animation: glowPulse 1.5s infinite alternate;"></span> ${text}`;
+  }
+}
+
+function processVoiceCommand(phrase) {
+  const clean = phrase.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").trim();
+  
+  if (clean.includes("about") || clean.includes("profile") || clean.includes("bio") || clean.includes("biography") || clean.includes("who are you")) {
+    navigateFromVoice("head");
+  } else if (clean.includes("skill") || clean.includes("languages") || clean.includes("tools") || clean.includes("abilities")) {
+    navigateFromVoice("brain");
+  } else if (clean.includes("project") || clean.includes("repositories") || clean.includes("apps") || clean.includes("work")) {
+    navigateFromVoice("rightChest");
+  } else if (clean.includes("certificate") || clean.includes("credentials") || clean.includes("hackathon") || clean.includes("achievements")) {
+    navigateFromVoice("leftChest");
+  } else if (clean.includes("resume") || clean.includes("cv") || clean.includes("academic") || clean.includes("education")) {
+    navigateFromVoice("rightHand");
+  } else if (clean.includes("journey") || clean.includes("roadmap") || clean.includes("timeline") || clean.includes("path")) {
+    navigateFromVoice("coreReactor");
+  } else if (clean.includes("contact") || clean.includes("email") || clean.includes("message") || clean.includes("social")) {
+    navigateFromVoice("leftLeg");
+  } else if (clean.includes("goal") || clean.includes("objectives") || clean.includes("future") || clean.includes("mission")) {
+    navigateFromVoice("rightLeg");
+  } else if (clean.includes("home") || clean.includes("back") || clean.includes("close") || clean.includes("reset") || clean.includes("exit")) {
+    navigateFromVoice("home");
+  }
+}
+
+function navigateFromVoice(nodeName) {
+  if (nodeName === 'home') {
+    if (currentState === 'zoomed') {
+      zoomOut();
+    }
+  } else {
+    if (currentState === 'zoomed' && activeNode !== nodeName) {
+      const prevPanel = document.getElementById(`panel-${activeNode}`);
+      if (prevPanel) prevPanel.classList.remove('active');
+      zoomToNode(nodeName);
+    } else if (currentState === 'orbit') {
+      zoomToNode(nodeName);
+    }
+  }
+}

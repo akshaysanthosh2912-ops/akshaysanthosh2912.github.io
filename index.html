@@ -51,6 +51,10 @@
       <div class="hud-title">SYSTEM STATUS</div>
       <div class="hud-value"><span class="pulse-dot"></span> NEURAL_LINK: ACTIVE</div>
     </div>
+    <div class="hud-item hud-center" id="hud-voice-card">
+      <div class="hud-title">VOICE DECODER</div>
+      <div class="hud-value" id="hud-voice-status"><span class="pulse-dot-purple"></span> STANDBY</div>
+    </div>
     <div class="hud-item hud-right">
       <div class="hud-title">NODE COORDINATES</div>
       <div class="hud-value" id="hud-coordinates">X: 0.00 Y: 0.00 Z: 0.00</div>
@@ -73,6 +77,9 @@
         <li><button class="nav-link-btn" data-node="rightLeg">Goals</button></li>
       </ul>
       <div class="hud-controls">
+        <button id="gfx-toggle" class="hud-btn" aria-label="Performance Mode">
+          <i class="fas fa-bolt"></i>
+        </button>
         <button id="sound-toggle" class="hud-btn" aria-label="Toggle Sound">
           <i class="fas fa-volume-up"></i>
         </button>
@@ -80,8 +87,35 @@
           <i class="fas fa-robot"></i>
         </button>
       </div>
+      <!-- Hamburger Toggle Button -->
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </nav>
+
+  <!-- ===== Mobile Navigation Overlay ===== -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <span class="nav-logo">&lt;AS.AI /&gt;</span>
+        <button id="mobile-menu-close" class="mobile-menu-close">&times;</button>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><button class="mobile-link-btn active" data-node="home"><i class="fas fa-home"></i> Home</button></li>
+        <li><button class="mobile-link-btn" data-node="head"><i class="fas fa-user-astronaut"></i> About</button></li>
+        <li><button class="mobile-link-btn" data-node="brain"><i class="fas fa-brain"></i> Skills</button></li>
+        <li><button class="mobile-link-btn" data-node="rightChest"><i class="fas fa-rocket"></i> Projects</button></li>
+        <li><button class="mobile-link-btn" data-node="leftChest"><i class="fas fa-certificate"></i> Credentials</button></li>
+        <li><button class="mobile-link-btn" data-node="rightHand"><i class="fas fa-file-invoice"></i> Resume</button></li>
+        <li><button class="mobile-link-btn" data-node="coreReactor"><i class="fas fa-atom"></i> Journey</button></li>
+        <li><button class="mobile-link-btn" data-node="leftLeg"><i class="fas fa-paper-plane"></i> Contact</button></li>
+        <li><button class="mobile-link-btn" data-node="rightLeg"><i class="fas fa-bullseye"></i> Goals</button></li>
+      </ul>
+    </div>
+  </div>
 
   <!-- ===== Interactive Overlay Floating Node Labels ===== -->
   <div id="hologram-labels">
