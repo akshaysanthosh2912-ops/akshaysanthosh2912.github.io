@@ -887,6 +887,16 @@ function updateFloatingLabels() {
 /* ===================================================================
    SVG NEURAL NETWORK DRAWING (SKILLS PANEL)
    =================================================================== */
+const skillDescriptions = {
+  core: "BRAIN CORE: The primary link of Akshai's cognitive resources and logic loops. Tap on any peripheral skill node in the diagram to fetch telemetry specs.",
+  python: "PYTHON DECODER: 75% stability. Utilized in B.Tech CSE (AI) projects to build the Trip Budget Guessing system, automate terminal utilities, and create RegEx conversational chatbot clients.",
+  c: "C LANGUAGE DECODER: 70% stability. Engineered procedural file-stream quiz modules, memory pointers, and structured class templates for undergraduate challenges.",
+  cpp: "C++ DECODER: 65% stability. Utilized for object-oriented abstractions, data structural logs, and optimized competitive programming parameters.",
+  mysql: "MYSQL SYSTEM DECODER: 60% stability. Configured relational table indexing, query optimizations, and structured storage schemas for university platforms.",
+  vscode: "VS CODE ENVIRONMENT: 80% stability. Configuration of primary workspace, extension sets, remote terminal debugging, and multi-language compilation parameters.",
+  git: "GIT VCS DECODER: 60% stability. Version control configuration, remote repository commits, branch rebasing, and GitHub collaboration workflows."
+};
+
 function initNeuralSkillsMap() {
   const svg = document.getElementById('neural-svg-map');
   if (!svg) return;
@@ -971,6 +981,31 @@ function initNeuralSkillsMap() {
       circle.setAttribute('r', node.r);
       circle.setAttribute('fill', 'rgba(10,10,25,0.8)');
       text.setAttribute('fill', '#8d8da5');
+    });
+
+    // Skill click interaction
+    group.addEventListener('click', () => {
+      synth.playClick();
+      
+      // Update Telemetry Console
+      const consoleBody = document.getElementById('skills-telemetry-body');
+      if (consoleBody) {
+        consoleBody.textContent = skillDescriptions[node.id];
+        consoleBody.classList.remove('active-text');
+        void consoleBody.offsetWidth; // Trigger reflow to restart animation
+        consoleBody.classList.add('active-text');
+      }
+
+      // Highlight Corresponding Skill Bar
+      document.querySelectorAll('.cyber-skill-bar-wrap').forEach(el => {
+        el.classList.remove('glowing-active');
+      });
+
+      const skillBar = document.getElementById(`skill-bar-${node.id}`);
+      if (skillBar) {
+        skillBar.classList.add('glowing-active');
+        skillBar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     });
 
     svg.appendChild(group);

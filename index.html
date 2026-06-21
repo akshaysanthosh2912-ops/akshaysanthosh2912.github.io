@@ -217,9 +217,7 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Panel: Skills (Brain) -->
+  </div>  <!-- Panel: Skills (Brain) -->
   <div class="holo-panel" id="panel-skills">
     <button class="panel-close-btn" data-node="brain">&times;</button>
     <div class="panel-header">
@@ -233,52 +231,58 @@
           <svg id="neural-svg-map" viewBox="0 0 400 240"></svg>
         </div>
 
+        <!-- Interactive Telemetry Console for Selected Skill -->
+        <div class="skills-telemetry-console" id="skills-telemetry-console">
+          <div class="console-title"><i class="fas fa-terminal"></i> COGNITIVE TELEMETRY</div>
+          <div class="console-body" id="skills-telemetry-body">Select a neural node in the map above to decode competence specifications...</div>
+        </div>
+ 
         <div class="skills-detail-grid">
           <!-- Programming Languages -->
           <div class="skill-group-cyber">
             <h4>Programming Languages</h4>
-            <div class="cyber-skill-bar-wrap">
+            <div class="cyber-skill-bar-wrap" id="skill-bar-python">
               <div class="skill-label-bar"><span>Python</span><span>75%</span></div>
               <div class="cyber-progress-bg">
                 <div class="cyber-progress-fill" style="width: 75%"></div>
               </div>
             </div>
-            <div class="cyber-skill-bar-wrap">
+            <div class="cyber-skill-bar-wrap" id="skill-bar-c">
               <div class="skill-label-bar"><span>C Language</span><span>70%</span></div>
               <div class="cyber-progress-bg">
                 <div class="cyber-progress-fill" style="width: 70%"></div>
               </div>
             </div>
-            <div class="cyber-skill-bar-wrap">
+            <div class="cyber-skill-bar-wrap" id="skill-bar-cpp">
               <div class="skill-label-bar"><span>C++ Development</span><span>65%</span></div>
               <div class="cyber-progress-bg">
                 <div class="cyber-progress-fill" style="width: 65%"></div>
               </div>
             </div>
-            <div class="cyber-skill-bar-wrap">
+            <div class="cyber-skill-bar-wrap" id="skill-bar-mysql">
               <div class="skill-label-bar"><span>MySQL Databases</span><span>60%</span></div>
               <div class="cyber-progress-bg">
                 <div class="cyber-progress-fill" style="width: 60%"></div>
               </div>
             </div>
           </div>
-
+ 
           <!-- Tools & Ecosystem -->
           <div class="skill-group-cyber">
             <h4>Tools & Ecosystem</h4>
-            <div class="cyber-skill-bar-wrap">
+            <div class="cyber-skill-bar-wrap" id="skill-bar-vscode">
               <div class="skill-label-bar"><span>VS Code Workspace</span><span>80%</span></div>
               <div class="cyber-progress-bg">
                 <div class="cyber-progress-fill" style="width: 80%"></div>
               </div>
             </div>
-            <div class="cyber-skill-bar-wrap">
+            <div class="cyber-skill-bar-wrap" id="skill-bar-jupyter">
               <div class="skill-label-bar"><span>Jupyter Notebooks</span><span>70%</span></div>
               <div class="cyber-progress-bg">
                 <div class="cyber-progress-fill" style="width: 70%"></div>
               </div>
             </div>
-            <div class="cyber-skill-bar-wrap">
+            <div class="cyber-skill-bar-wrap" id="skill-bar-git">
               <div class="skill-label-bar"><span>Git Version Control</span><span>60%</span></div>
               <div class="cyber-progress-bg">
                 <div class="cyber-progress-fill" style="width: 60%"></div>
