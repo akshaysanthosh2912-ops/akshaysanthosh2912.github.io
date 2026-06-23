@@ -217,93 +217,126 @@
         </div>
       </div>
     </div>
-  </div>  <!-- Panel: Skills (Brain) -->
-  <div class="holo-panel" id="panel-skills">
+  </div>
+
+  <!-- Panel: Skills (Brain) — ID must match node name "brain" for zoomToNode() -->
+  <div class="holo-panel" id="panel-brain">
     <button class="panel-close-btn" data-node="brain">&times;</button>
     <div class="panel-header">
       <h2><span class="cyber-num">02.</span> Cognitive Network</h2>
-      <p class="panel-subtitle">Displaying skill node matrices...</p>
+      <p class="panel-subtitle">Skill node matrix — click a neural node to decode specs</p>
     </div>
     <div class="panel-content">
-      <div class="skills-flex-layout">
-        <!-- SVG Neural skill network placeholder / display -->
-        <div class="neural-viz-container">
-          <svg id="neural-svg-map" viewBox="0 0 400 240"></svg>
-        </div>
 
-        <!-- Interactive Telemetry Console for Selected Skill -->
-        <div class="skills-telemetry-console" id="skills-telemetry-console">
-          <div class="console-title"><i class="fas fa-terminal"></i> COGNITIVE TELEMETRY</div>
-          <div class="console-body" id="skills-telemetry-body">Select a neural node in the map above to decode competence specifications...</div>
-        </div>
- 
-        <div class="skills-detail-grid">
-          <!-- Programming Languages -->
-          <div class="skill-group-cyber">
-            <h4>Programming Languages</h4>
-            <div class="cyber-skill-bar-wrap" id="skill-bar-python">
-              <div class="skill-label-bar"><span>Python</span><span>75%</span></div>
-              <div class="cyber-progress-bg">
-                <div class="cyber-progress-fill" style="width: 75%"></div>
-              </div>
-            </div>
-            <div class="cyber-skill-bar-wrap" id="skill-bar-c">
-              <div class="skill-label-bar"><span>C Language</span><span>70%</span></div>
-              <div class="cyber-progress-bg">
-                <div class="cyber-progress-fill" style="width: 70%"></div>
-              </div>
-            </div>
-            <div class="cyber-skill-bar-wrap" id="skill-bar-cpp">
-              <div class="skill-label-bar"><span>C++ Development</span><span>65%</span></div>
-              <div class="cyber-progress-bg">
-                <div class="cyber-progress-fill" style="width: 65%"></div>
-              </div>
-            </div>
-            <div class="cyber-skill-bar-wrap" id="skill-bar-mysql">
-              <div class="skill-label-bar"><span>MySQL Databases</span><span>60%</span></div>
-              <div class="cyber-progress-bg">
-                <div class="cyber-progress-fill" style="width: 60%"></div>
-              </div>
+      <!-- ─── Category Tab Nav ─── -->
+      <div class="skill-tabs-nav">
+        <button class="skill-tab-btn active" data-skill-tab="all">All Skills</button>
+        <button class="skill-tab-btn" data-skill-tab="lang">Languages</button>
+        <button class="skill-tab-btn" data-skill-tab="tools">Tools</button>
+        <button class="skill-tab-btn" data-skill-tab="soft">Soft Skills</button>
+      </div>
+
+      <!-- ─── Programming Languages ─── -->
+      <div class="skill-section" data-skill-section="lang">
+        <div class="skill-section-header"><i class="fas fa-code"></i> Programming Languages</div>
+
+        <div class="skill-card-row">
+          <div class="skill-card" data-skill="python">
+            <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fab fa-python"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">Python</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:75%;--c:#00f0ff"></div></div>
+              <div class="skill-card-meta"><span class="skill-badge">75%</span><span class="skill-tag">Data &amp; Automation</span></div>
             </div>
           </div>
- 
-          <!-- Tools & Ecosystem -->
-          <div class="skill-group-cyber">
-            <h4>Tools & Ecosystem</h4>
-            <div class="cyber-skill-bar-wrap" id="skill-bar-vscode">
-              <div class="skill-label-bar"><span>VS Code Workspace</span><span>80%</span></div>
-              <div class="cyber-progress-bg">
-                <div class="cyber-progress-fill" style="width: 80%"></div>
-              </div>
-            </div>
-            <div class="cyber-skill-bar-wrap" id="skill-bar-jupyter">
-              <div class="skill-label-bar"><span>Jupyter Notebooks</span><span>70%</span></div>
-              <div class="cyber-progress-bg">
-                <div class="cyber-progress-fill" style="width: 70%"></div>
-              </div>
-            </div>
-            <div class="cyber-skill-bar-wrap" id="skill-bar-git">
-              <div class="skill-label-bar"><span>Git Version Control</span><span>60%</span></div>
-              <div class="cyber-progress-bg">
-                <div class="cyber-progress-fill" style="width: 60%"></div>
-              </div>
+          <div class="skill-card" data-skill="c">
+            <div class="skill-card-icon" style="--sc:#9d00ff"><i class="fas fa-memory"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">C Language</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:70%;--c:#9d00ff"></div></div>
+              <div class="skill-card-meta"><span class="skill-badge">70%</span><span class="skill-tag">Systems &amp; Logic</span></div>
             </div>
           </div>
+        </div>
 
-          <!-- Soft Competencies -->
-          <div class="skill-group-cyber full-width-group">
-            <h4>Soft Competencies</h4>
-            <div class="soft-skills-grid-cyber">
-              <span class="soft-tag"><i class="fas fa-puzzle-piece"></i> Problem Solving</span>
-              <span class="soft-tag"><i class="fas fa-users"></i> Team Collaboration</span>
-              <span class="soft-tag"><i class="fas fa-lightbulb"></i> Creative Logic</span>
-              <span class="soft-tag"><i class="fas fa-comments"></i> Communication</span>
-              <span class="soft-tag"><i class="fas fa-clock"></i> Time Structuring</span>
-              <span class="soft-tag"><i class="fas fa-bolt"></i> Rapid Adaptability</span>
+        <div class="skill-card-row">
+          <div class="skill-card" data-skill="cpp">
+            <div class="skill-card-icon" style="--sc:#ff007f"><i class="fas fa-layer-group"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">C++ Development</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:65%;--c:#ff007f"></div></div>
+              <div class="skill-card-meta"><span class="skill-badge">65%</span><span class="skill-tag">OOP &amp; DSA</span></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="mysql">
+            <div class="skill-card-icon" style="--sc:#39ff14"><i class="fas fa-database"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">MySQL Databases</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:60%;--c:#39ff14"></div></div>
+              <div class="skill-card-meta"><span class="skill-badge">60%</span><span class="skill-tag">Relational DB</span></div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- ─── Tools & Ecosystem ─── -->
+      <div class="skill-section" data-skill-section="tools">
+        <div class="skill-section-header"><i class="fas fa-tools"></i> Tools &amp; Ecosystem</div>
+
+        <div class="skill-card-row">
+          <div class="skill-card" data-skill="vscode">
+            <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fas fa-code"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">VS Code</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:80%;--c:#00f0ff"></div></div>
+              <div class="skill-card-meta"><span class="skill-badge">80%</span><span class="skill-tag">IDE</span></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="jupyter">
+            <div class="skill-card-icon" style="--sc:#ff9d00"><i class="fas fa-book-open"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">Jupyter Notebooks</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:70%;--c:#ff9d00"></div></div>
+              <div class="skill-card-meta"><span class="skill-badge">70%</span><span class="skill-tag">ML &amp; Analysis</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card-row">
+          <div class="skill-card" data-skill="git">
+            <div class="skill-card-icon" style="--sc:#ff007f"><i class="fab fa-git-alt"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">Git &amp; GitHub</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:60%;--c:#ff007f"></div></div>
+              <div class="skill-card-meta"><span class="skill-badge">60%</span><span class="skill-tag">Version Control</span></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="ai">
+            <div class="skill-card-icon" style="--sc:#9d00ff"><i class="fas fa-robot"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">AI / LLM Tools</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:70%;--c:#9d00ff"></div></div>
+              <div class="skill-card-meta"><span class="skill-badge">70%</span><span class="skill-tag">Prompt Eng.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Soft Skills ─── -->
+      <div class="skill-section" data-skill-section="soft">
+        <div class="skill-section-header"><i class="fas fa-brain"></i> Soft Competencies</div>
+        <div class="soft-skills-grid-cyber">
+          <span class="soft-tag"><i class="fas fa-puzzle-piece"></i> Problem Solving</span>
+          <span class="soft-tag"><i class="fas fa-users"></i> Team Collaboration</span>
+          <span class="soft-tag"><i class="fas fa-lightbulb"></i> Creative Logic</span>
+          <span class="soft-tag"><i class="fas fa-comments"></i> Communication</span>
+          <span class="soft-tag"><i class="fas fa-clock"></i> Time Management</span>
+          <span class="soft-tag"><i class="fas fa-bolt"></i> Rapid Adaptability</span>
+          <span class="soft-tag"><i class="fas fa-search"></i> Research Mindset</span>
+          <span class="soft-tag"><i class="fas fa-handshake"></i> Leadership</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
