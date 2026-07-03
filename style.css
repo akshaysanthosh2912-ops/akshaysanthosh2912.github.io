@@ -34,6 +34,12 @@
   /* Animations */
   --transition-fast: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* Safe-area insets for notched devices (iPhone X+, Android punch-hole) */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 }
 
 /* ========================================== */
@@ -43,6 +49,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -55,6 +62,8 @@ body {
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Prevent iOS rubber-band scroll from causing layout issues */
+  overscroll-behavior: none;
 }
 
 a {
@@ -115,20 +124,22 @@ button {
 }
 
 .preloader-content {
-  width: 80%;
+  width: 90%;
   max-width: 550px;
   display: flex;
   flex-direction: column;
+  padding: 0 10px;
 }
 
 .cyber-glitch-text {
-  font-size: 1.6rem;
+  font-size: clamp(0.9rem, 4vw, 1.6rem);
   font-weight: 800;
   color: var(--neon-cyan);
-  letter-spacing: 3px;
+  letter-spacing: clamp(1px, 0.5vw, 3px);
   margin-bottom: 25px;
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
   position: relative;
+  word-break: break-word;
 }
 
 .preloader-bar {
@@ -209,6 +220,7 @@ button {
   right: 20px;
   display: flex;
   justify-content: space-between;
+  gap: 8px;
   z-index: 10;
   pointer-events: none;
   font-family: var(--font-mono);
@@ -270,15 +282,21 @@ button {
   text-align: center;
   pointer-events: none;
   font-family: var(--font-mono);
+  width: 90%;
+  max-width: 480px;
 }
 
 .glitch-glow {
-  font-size: 0.85rem;
+  font-size: clamp(0.65rem, 2vw, 0.85rem);
   font-weight: 700;
   color: var(--neon-cyan);
-  letter-spacing: 2px;
+  letter-spacing: clamp(1px, 0.5vw, 2px);
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
   animation: pulseGlowText 2s infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 
 @keyframes pulseGlowText {
@@ -292,7 +310,7 @@ button {
 }
 
 .navigation-hint {
-  font-size: 0.68rem;
+  font-size: clamp(0.58rem, 1.5vw, 0.68rem);
   color: var(--text-muted);
   margin-top: 4px;
   letter-spacing: 1px;
@@ -308,7 +326,8 @@ button {
   width: 100vw;
   z-index: 100;
   background: linear-gradient(180deg, rgba(2, 2, 5, 0.8) 0%, rgba(2, 2, 5, 0) 100%);
-  padding: 15px 30px;
+  /* Account for notches/status bar on iOS & Android */
+  padding: calc(15px + var(--safe-top)) calc(30px + var(--safe-right)) 15px calc(30px + var(--safe-left));
 }
 
 .nav-container {
@@ -560,7 +579,7 @@ button {
   top: 100px;
   right: 50px;
   bottom: 80px;
-  width: 550px;
+  width: clamp(320px, 550px, calc(100vw - 80px));
   background: rgba(8, 8, 20, 0.9);
   /* Lighter solid background for performance fallback */
   border: 1px solid var(--border-glow);
@@ -1471,7 +1490,9 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 150px;
+  /* Fluid max-width: large on desktop, full-width in cards on mobile */
+  max-width: min(150px, 100%);
+  display: block;
 }
 
 .contact-form-cyber {
@@ -1492,11 +1513,15 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   padding: 14px 16px 14px 16px;
-  font-size: 0.85rem;
+  /* 16px minimum prevents iOS Safari from zooming on focus */
+  font-size: max(16px, 0.85rem);
   color: #fff;
   outline: none;
   font-family: inherit;
   transition: all var(--transition-fast);
+  /* Smooth scrolling inside form on iOS */
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .form-group-cyber label {
@@ -1854,9 +1879,10 @@ button {
 /* ========================================== */
 /* ===== RESPONSIVE MEDIA QUERIES =========== */
 /* ========================================== */
+/* ─── 1200px: switch to condensed desktop panel ─── */
 @media (max-width: 1200px) {
   .holo-panel {
-    width: 450px;
+    width: clamp(340px, 45vw, 450px);
     right: 25px;
     padding: 30px;
   }
@@ -1870,6 +1896,7 @@ button {
   }
 }
 
+/* ─── 992px: tablet / large phone landscape → bottom-sheet panels ─── */
 @media (max-width: 992px) {
   body {
     overflow: hidden;
@@ -1888,21 +1915,30 @@ button {
 
   .cyber-hud {
     bottom: 15px;
-    left: 15px;
-    right: 15px;
-    font-size: 0.68rem;
-    gap: 8px;
+    left: 10px;
+    right: 10px;
+    font-size: 0.65rem;
+    gap: 6px;
   }
 
   .hud-item {
-    padding: 8px 12px;
+    padding: 7px 10px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Truncate long coordinate text so it never wraps */
+  #hud-coordinates {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   #hud-voice-card {
-    display: none !important; /* Hide voice status card on medium HUD to save space */
+    display: none !important;
   }
 
-  /* Draw panels as bottom sheet overlays */
+  /* ── Bottom-sheet panels ── */
   .holo-panel {
     position: fixed;
     top: auto;
@@ -1910,33 +1946,41 @@ button {
     right: 0;
     bottom: 0;
     width: 100vw;
-    height: 72vh;
-    max-height: 80vh;
+    /* Use dvh for devices with dynamic toolbars (mobile Chrome/Safari) */
+    height: 72svh;
+    max-height: 82svh;
     margin: 0;
     border-radius: 20px 20px 0 0;
     border-bottom: none;
     border-left: none;
     border-right: none;
     border-top: 1px solid var(--border-glow-active);
-    background: rgba(6, 6, 16, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(6, 6, 16, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     transform: translateY(100%) scale(1);
-    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s ease, visibility 0.5s;
-    padding: 30px 24px 20px;
+    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.45s ease, visibility 0.45s;
+    /* Respect home indicator / bottom safe area on notched phones */
+    padding: 28px 20px calc(16px + var(--safe-bottom));
+    padding-left: calc(20px + var(--safe-left));
+    padding-right: calc(20px + var(--safe-right));
     z-index: 999;
+    /* Pull-indicator affordance */
+    padding-top: 36px;
   }
 
+  /* Pull indicator pill */
   .holo-panel::before {
-    top: 0;
-    left: 0;
-    border-radius: 20px 0 0 0;
-    border-top: 3px solid var(--neon-cyan);
-    border-left: 3px solid var(--neon-cyan);
-    border-bottom: none;
-    border-right: none;
-    width: 25px;
-    height: 25px;
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: rgba(0, 240, 255, 0.3);
+    border-radius: 4px;
+    border: none;
   }
 
   .holo-panel::after {
@@ -1949,35 +1993,35 @@ button {
     border-right: 3px solid var(--neon-magenta);
     border-bottom: none;
     border-left: none;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
   }
 
   .holo-panel.active {
     transform: translateY(0) scale(1);
     opacity: 1;
     visibility: visible;
-    box-shadow: 0 -15px 40px rgba(0, 240, 255, 0.15);
+    box-shadow: 0 -15px 40px rgba(0, 240, 255, 0.12);
   }
 
   .panel-close-btn {
-    top: 20px;
-    right: 20px;
-    width: 32px;
-    height: 32px;
+    top: 18px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
     font-size: 1.1rem;
   }
 
   .panel-header {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .panel-header h2 {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
   .contact-hud-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
@@ -1995,26 +2039,62 @@ button {
     height: 180px;
     margin-bottom: 10px;
   }
-  
+
+  /* Certificate cards: side-by-side preview stays manageable */
+  .cert-vault-preview {
+    width: 110px;
+    height: 80px;
+  }
+
   .about-pic-wrap {
-     flex-direction: row;
-     justify-content: center;
-     gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
   }
 }
 
+/* ─── 768px: standard phones landscape / small tablets ─── */
+@media (max-width: 768px) {
+  .holo-panel {
+    height: 74svh;
+    max-height: 84svh;
+  }
+
+  /* Contact links: collapse to 1 column so text fits */
+  .contact-hud-links {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Certificate cards go full-width stacked */
+  .cert-vault-card {
+    flex-direction: column;
+  }
+
+  .cert-vault-preview {
+    width: 100%;
+    height: 140px;
+  }
+
+  .cert-vault-info {
+    padding: 12px 16px;
+  }
+}
+
+/* ─── 576px: portrait phones ─── */
 @media (max-width: 576px) {
   .holo-panel {
-    height: 78vh;
-    padding: 24px 18px 15px;
+    height: 80svh;
+    max-height: 88svh;
+    padding: 36px 16px 12px;
   }
 
   .navbar {
-    padding: 12px 15px;
+    padding: 10px 14px;
   }
 
   .nav-logo {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .cyber-hud {
@@ -2023,19 +2103,11 @@ button {
 
   .hud-instructions {
     width: 95%;
-    bottom: 12px;
-  }
-
-  .glitch-glow {
-    font-size: 0.72rem;
-  }
-
-  .navigation-hint {
-    font-size: 0.6rem;
+    bottom: 10px;
   }
 
   .about-bio-text h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .bio-desc {
@@ -2044,10 +2116,11 @@ button {
 
   .cyber-quote {
     font-size: 0.8rem;
+    padding-left: 12px;
   }
 
   .hud-controls {
-    gap: 8px;
+    gap: 7px;
   }
 
   .hud-btn {
@@ -2057,16 +2130,20 @@ button {
   }
 
   .mobile-nav-toggle {
-    width: 20px;
-    height: 14px;
+    width: 22px;
+    height: 16px;
   }
 
   .mobile-nav-toggle.open .bar:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
 
   .mobile-nav-toggle.open .bar:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .project-cyber-card {
+    padding: 16px;
   }
 
   .project-cyber-card h3 {
@@ -2074,26 +2151,203 @@ button {
   }
 
   .project-cyber-card p {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
+  }
+
+  .panel-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .panel-subtitle {
+    font-size: 0.68rem;
   }
 
   .cyber-modal-frame {
-    width: 95%;
+    width: 96%;
   }
 
   .cyber-modal-close {
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
+    top: 12px;
+    right: 16px;
+    font-size: 1.9rem;
   }
-  
+
   .about-pic-wrap {
-     flex-direction: column;
+    flex-direction: column;
+  }
+
+  /* Journey nodes: tighter layout */
+  .journey-timeline-cyber {
+    padding-left: 10px;
+  }
+
+  .node-content-cyber {
+    padding: 14px;
+  }
+
+  /* Goal cards */
+  .goal-cyber-card {
+    padding: 16px;
+  }
+
+  /* Resume timeline */
+  .timeline-cyber-item {
+    padding-left: 14px;
   }
 }
 
-.panel-content {
+/* ─── 420px: small phones (iPhone SE, Galaxy A series) ─── */
+@media (max-width: 420px) {
+  .holo-panel {
+    height: 82svh;
+    max-height: 90svh;
+    padding: 36px 13px 10px;
+  }
+
+  .navbar {
+    padding: 9px 12px;
+  }
+
+  .nav-logo {
+    font-size: 0.95rem;
+  }
+
+  .hud-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.78rem;
+  }
+
+  .hud-controls {
+    gap: 5px;
+  }
+
+  .panel-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .about-bio-text h3 {
+    font-size: 1.1rem;
+  }
+
+  .cyber-frame {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cyber-frame-avatar {
+    font-size: 2.6rem;
+  }
+
+  /* Contact form: full 1-col on tiny screens */
+  .contact-hud-links {
+    grid-template-columns: 1fr;
+  }
+
+  .hud-contact-card {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .mobile-menu-content {
+    width: 92%;
+  }
+
+  .mobile-link-btn {
+    padding: 10px 14px;
+    font-size: 0.82rem;
+  }
+
+  /* Skill cards: stack on very narrow screens */
+  .skill-card-row {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    padding: 10px 12px;
+  }
+
+  .skill-card-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .skill-tabs-nav {
+    gap: 5px;
+  }
+
+  .skill-tab-btn {
+    padding: 5px 10px;
+    font-size: 0.68rem;
+  }
+}
+
+/* ─── 360px: ultra-small (Galaxy A03, older budget phones) ─── */
+@media (max-width: 360px) {
+  .holo-panel {
+    padding: 34px 10px 8px;
+  }
+
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .nav-logo {
+    font-size: 0.88rem;
+  }
+
+  .panel-header h2 {
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+
+  .about-bio-text h3 {
+    font-size: 1rem;
+  }
+
+  .bio-quick-details {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .detail-badge {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+
+  .soft-tag {
+    font-size: 0.68rem;
+    padding: 5px 10px;
+  }
+
+  .proj-tech-stack span {
+    font-size: 0.6rem;
+  }
+
+  .mobile-menu-content {
+    width: 96%;
+  }
+
+  .mobile-link-btn {
+    padding: 9px 12px;
+    font-size: 0.78rem;
+  }
+}
+
+/* ── Smooth momentum scrolling on iOS for all scrollable panel content ── */
+.panel-content,
+.resume-scroll-container,
+.panel-content * {
   -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent scroll events from leaking to background canvas while panel is open */
+body.panel-open {
+  touch-action: none;
+}
+body.panel-open .holo-panel.active {
+  touch-action: pan-y;
 }
 
 /* ======================================================

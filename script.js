@@ -1265,10 +1265,11 @@ function zoomToNode(nodeName) {
     btn.classList.toggle('active', btn.dataset.node === nodeName);
   });
 
-  // Display glass panel overlay
+  // Display glass panel overlay & lock background scroll on mobile
   setTimeout(() => {
     const panel = document.getElementById(`panel-${nodeName}`);
     if (panel) panel.classList.add('active');
+    document.body.classList.add('panel-open');
   }, 1200);
 }
 
@@ -1281,11 +1282,12 @@ function zoomOut() {
   synth.playClose();
   if (voice.enabled) voice.speak(voiceNarration.reset);
 
-  // Close active panel overlay
+  // Close active panel overlay & restore scroll
   if (activeNode) {
     const panel = document.getElementById(`panel-${activeNode}`);
     if (panel) panel.classList.remove('active');
   }
+  document.body.classList.remove('panel-open');
 
   currentState = 'orbit';
   activeNode = null;
@@ -1333,6 +1335,48 @@ function setupUIEvents() {
     btn.addEventListener('click', () => {
       zoomOut();
     });
+  });
+
+  // ── Swipe-down to dismiss bottom-sheet panels (mobile) ──
+  document.querySelectorAll('.holo-panel').forEach(panel => {
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    let isDragging = false;
+
+    panel.addEventListener('touchstart', (e) => {
+      // Only start drag when touching near top 60px (pill/header area)
+      const touchY = e.touches[0].clientY;
+      const panelTop = panel.getBoundingClientRect().top;
+      if (touchY - panelTop < 64) {
+        touchStartY = touchY;
+        touchStartTime = Date.now();
+        isDragging = true;
+        panel.style.transition = 'none';
+      }
+    }, { passive: true });
+
+    panel.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const delta = e.touches[0].clientY - touchStartY;
+      if (delta > 0) {
+        panel.style.transform = `translateY(${delta}px)`;
+      }
+    }, { passive: true });
+
+    panel.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      panel.style.transition = '';
+      const delta = e.changedTouches[0].clientY - touchStartY;
+      const elapsed = Date.now() - touchStartTime;
+      const velocity = delta / elapsed; // px/ms
+      if (delta > 80 || velocity > 0.35) {
+        panel.style.transform = '';
+        zoomOut();
+      } else {
+        panel.style.transform = '';
+      }
+    }, { passive: true });
   });
 
   // Top Nav quick access menu buttons
