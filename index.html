@@ -1,155 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#05050a" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>Akshai Santhosh | Neural AI Portfolio</title>
-  <meta name="description"
-    content="Futuristic 3D AI Robot Portfolio of Akshai Santhosh — B.Tech CSE (AI) Student at Amal Jyothi College of Engineering." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshai Santhosh | AI Engineer Portfolio</title>
+  <meta name="description" content="Akshai Santhosh — AI Engineering Student & Aspiring AI Research Engineer. Explore projects, skills, certificates and innovations in artificial intelligence." />
+  <meta property="og:title" content="Akshai Santhosh | AI Engineer Portfolio" />
+  <meta property="og:description" content="Passionate about Artificial Intelligence, Robotics, Machine Learning, and creating innovative software solutions." />
+  <meta name="theme-color" content="#00f0ff" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<body class="cyber-theme">
-  <!-- ===== Futuristic Calibration Preloader ===== -->
+  <!-- ===== SYSTEM BOOT PRELOADER ===== -->
   <div id="preloader">
     <div class="preloader-content">
-      <div class="cyber-glitch-text" data-text="SYSTEM BOOT SEQUENCE">SYSTEM BOOT SEQUENCE</div>
+      <div class="cyber-glitch-text">[ AKSHAI_NEURAL_PORTFOLIO v3.0 ]</div>
       <div class="preloader-bar">
         <div class="preloader-progress"></div>
       </div>
       <div class="preloader-status">
-        <span class="status-term">NEURAL LINK: CALIBRATING...</span>
+        <span class="status-msg">Initializing AI Core Systems...</span>
         <span class="status-pct">00%</span>
       </div>
       <div class="boot-logs">
-        <div>[OK] INITIALIZING QUANTUM GRAPHICS ENGINE...</div>
-        <div>[OK] STABILIZING PARTICLE FIELD CONVERGENCE...</div>
-        <div>[OK] LINKING NEURAL CORE DYNAMICS...</div>
-        <div>[OK] SYNTHESIZING AUDIO MATRIX RESPONSE...</div>
+        <div>» Loading Three.js WebGL renderer... OK</div>
+        <div>» Compiling GLSL shader programs... OK</div>
+        <div>» Building neural particle galaxy... OK</div>
+        <div>» Assembling humanoid robot mesh... OK</div>
+        <div>» Syncing AI voice recognition module... OK</div>
+        <div>» Establishing holographic interfaces... OK</div>
+        <div>» Portfolio systems online. Welcome, visitor.</div>
       </div>
     </div>
   </div>
 
-  <!-- ===== 3D WebGL Canvas ===== -->
+  <!-- ===== 3D CANVAS CONTAINER ===== -->
   <div id="canvas-container">
     <canvas id="3d-canvas"></canvas>
+    <canvas id="cursor-canvas"></canvas>
   </div>
 
-  <!-- ===== Custom Cursor Canvas Overlay ===== -->
-  <canvas id="cursor-canvas"></canvas>
-
-  <!-- ===== Cyber HUD / Telemetry ===== -->
-  <div class="cyber-hud">
-    <div class="hud-item hud-left">
-      <div class="hud-title">SYSTEM STATUS</div>
-      <div class="hud-value"><span class="pulse-dot"></span> NEURAL_LINK: ACTIVE</div>
-    </div>
-    <div class="hud-item hud-center" id="hud-voice-card">
-      <div class="hud-title">VOICE DECODER</div>
-      <div class="hud-value" id="hud-voice-status"><span class="pulse-dot-purple"></span> STANDBY</div>
-    </div>
-    <div class="hud-item hud-right">
-      <div class="hud-title">NODE COORDINATES</div>
-      <div class="hud-value" id="hud-coordinates">X: 0.00 Y: 0.00 Z: 0.00</div>
-    </div>
-  </div>
-
-  <!-- ===== Holographic Navigation Menu ===== -->
-  <nav id="navbar" class="navbar">
+  <!-- ===== TOP NAVIGATION BAR ===== -->
+  <nav class="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo" id="nav-logo">&lt;AS.AI /&gt;</a>
+      <a href="#" class="nav-logo">&lt;AS /&gt;</a>
+
       <ul class="nav-menu">
-        <li><button class="nav-link-btn active" data-node="home">Home</button></li>
-        <li><button class="nav-link-btn" data-node="head">About</button></li>
-        <li><button class="nav-link-btn" data-node="brain">Skills</button></li>
-        <li><button class="nav-link-btn" data-node="rightChest">Projects</button></li>
-        <li><button class="nav-link-btn" data-node="leftChest">Credentials</button></li>
-        <li><button class="nav-link-btn" data-node="rightHand">Resume</button></li>
-        <li><button class="nav-link-btn" data-node="coreReactor">Journey</button></li>
-        <li><button class="nav-link-btn" data-node="leftLeg">Contact</button></li>
-        <li><button class="nav-link-btn" data-node="rightLeg">Goals</button></li>
+        <li><button class="nav-link-btn active" data-node="home"><i class="fas fa-home"></i> Home</button></li>
+        <li><button class="nav-link-btn" data-node="head"><i class="fas fa-user-astronaut"></i> About</button></li>
+        <li><button class="nav-link-btn" data-node="brain"><i class="fas fa-brain"></i> Skills</button></li>
+        <li><button class="nav-link-btn" data-node="rightChest"><i class="fas fa-code-branch"></i> Projects</button></li>
+        <li><button class="nav-link-btn" data-node="leftChest"><i class="fas fa-certificate"></i> Credentials</button></li>
+        <li><button class="nav-link-btn" data-node="rightHand"><i class="fas fa-file-alt"></i> Resume</button></li>
+        <li><button class="nav-link-btn" data-node="coreReactor"><i class="fas fa-route"></i> Journey</button></li>
+        <li><button class="nav-link-btn" data-node="rightLeg"><i class="fas fa-bullseye"></i> Goals</button></li>
+        <li><button class="nav-link-btn" data-node="leftLeg"><i class="fas fa-satellite-dish"></i> Contact</button></li>
       </ul>
+
       <div class="hud-controls">
-        <button id="gfx-toggle" class="hud-btn" aria-label="Performance Mode">
-          <i class="fas fa-bolt"></i>
-        </button>
-        <button id="sound-toggle" class="hud-btn" aria-label="Toggle Sound">
-          <i class="fas fa-volume-up"></i>
-        </button>
-        <button id="voice-assistant" class="hud-btn" aria-label="AI Voice Assistant">
-          <i class="fas fa-robot"></i>
+        <button class="hud-btn" id="sound-toggle" title="Toggle Sound"><i class="fas fa-volume-up"></i></button>
+        <button class="hud-btn" id="voice-assistant" title="AI Voice Assistant"><i class="fas fa-microphone"></i></button>
+        <button class="hud-btn" id="gfx-toggle" title="Toggle Graphics Quality"><i class="fas fa-bolt"></i></button>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open Navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </button>
       </div>
-      <!-- Hamburger Toggle Button -->
-      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
     </div>
   </nav>
 
-  <!-- ===== Mobile Navigation Overlay ===== -->
-  <div id="mobile-menu-overlay" class="mobile-menu-overlay">
-    <div class="mobile-menu-content">
-      <div class="mobile-menu-header">
-        <span class="nav-logo">&lt;AS.AI /&gt;</span>
-        <button id="mobile-menu-close" class="mobile-menu-close">&times;</button>
+  <!-- ===== HERO INTRO OVERLAY (visible when orbiting) ===== -->
+  <div id="hero-intro" class="hero-intro-wrap">
+    <div class="hero-intro-content">
+      <div class="hero-status-badge">
+        <span class="pulse-dot-green-sm"></span>
+        <span>Available for Internship & Collaboration</span>
       </div>
-      <ul class="mobile-menu-links">
-        <li><button class="mobile-link-btn active" data-node="home"><i class="fas fa-home"></i> Home</button></li>
-        <li><button class="mobile-link-btn" data-node="head"><i class="fas fa-user-astronaut"></i> About</button></li>
-        <li><button class="mobile-link-btn" data-node="brain"><i class="fas fa-brain"></i> Skills</button></li>
-        <li><button class="mobile-link-btn" data-node="rightChest"><i class="fas fa-rocket"></i> Projects</button></li>
-        <li><button class="mobile-link-btn" data-node="leftChest"><i class="fas fa-certificate"></i> Credentials</button></li>
-        <li><button class="mobile-link-btn" data-node="rightHand"><i class="fas fa-file-invoice"></i> Resume</button></li>
-        <li><button class="mobile-link-btn" data-node="coreReactor"><i class="fas fa-atom"></i> Journey</button></li>
-        <li><button class="mobile-link-btn" data-node="leftLeg"><i class="fas fa-paper-plane"></i> Contact</button></li>
-        <li><button class="mobile-link-btn" data-node="rightLeg"><i class="fas fa-bullseye"></i> Goals</button></li>
-      </ul>
+      <h1 class="hero-name">
+        <span class="name-main">AKSHAI</span>
+        <span class="name-accent"> SANTHOSH</span>
+      </h1>
+      <div class="hero-title-line">
+        <span class="hero-role" id="typing-role"></span>
+        <span class="typing-cursor">|</span>
+      </div>
+      <p class="hero-tagline">Passionate about <span class="glow-text">Artificial Intelligence</span>, <span class="glow-text-magenta">Robotics</span>, <span class="glow-text-purple">Machine Learning</span>, and creating innovative software solutions.</p>
+      <div class="hero-cta-row">
+        <button class="btn-hero-primary" onclick="document.querySelector('[data-node=rightChest]').click()">
+          <i class="fas fa-rocket"></i> View Projects
+        </button>
+        <button class="btn-hero-outline" id="hero-resume-btn">
+          <i class="fas fa-download"></i> Download Resume
+        </button>
+      </div>
+      <div class="hero-mini-stats">
+        <div class="mini-stat"><span class="mini-stat-num" data-count="5">0</span><span class="mini-stat-label">Projects</span></div>
+        <div class="mini-stat-divider"></div>
+        <div class="mini-stat"><span class="mini-stat-num" data-count="3">0</span><span class="mini-stat-label">Certificates</span></div>
+        <div class="mini-stat-divider"></div>
+        <div class="mini-stat"><span class="mini-stat-num" data-count="12">0</span><span class="mini-stat-label">Technologies</span></div>
+      </div>
     </div>
   </div>
 
-  <!-- ===== Interactive Overlay Floating Node Labels ===== -->
+  <!-- ===== HOLOGRAPHIC FLOATING LABELS ===== -->
   <div id="hologram-labels">
     <div class="holo-label-tag" id="tag-head" data-node="head">
       <div class="tag-line"></div>
-      <div class="tag-box"><i class="fas fa-user-astronaut"></i> ABOUT</div>
+      <div class="tag-box"><i class="fas fa-user-astronaut"></i> PROFILE</div>
     </div>
     <div class="holo-label-tag" id="tag-brain" data-node="brain">
-      <div class="tag-line"></div>
+      <div class="tag-line tag-line-right"></div>
       <div class="tag-box"><i class="fas fa-brain"></i> SKILLS</div>
     </div>
     <div class="holo-label-tag" id="tag-rightChest" data-node="rightChest">
       <div class="tag-line"></div>
-      <div class="tag-box"><i class="fas fa-rocket"></i> PROJECTS</div>
+      <div class="tag-box"><i class="fas fa-code-branch"></i> PROJECTS</div>
     </div>
     <div class="holo-label-tag" id="tag-leftChest" data-node="leftChest">
-      <div class="tag-line"></div>
+      <div class="tag-line tag-line-right"></div>
       <div class="tag-box"><i class="fas fa-certificate"></i> CREDENTIALS</div>
     </div>
     <div class="holo-label-tag" id="tag-rightHand" data-node="rightHand">
       <div class="tag-line"></div>
-      <div class="tag-box"><i class="fas fa-file-invoice"></i> RESUME</div>
+      <div class="tag-box"><i class="fas fa-file-alt"></i> RESUME</div>
     </div>
     <div class="holo-label-tag" id="tag-coreReactor" data-node="coreReactor">
-      <div class="tag-line"></div>
-      <div class="tag-box"><i class="fas fa-atom"></i> ROADMAP</div>
+      <div class="tag-line tag-line-right"></div>
+      <div class="tag-box"><i class="fas fa-atom"></i> JOURNEY</div>
     </div>
     <div class="holo-label-tag" id="tag-leftLeg" data-node="leftLeg">
-      <div class="tag-line"></div>
-      <div class="tag-box"><i class="fas fa-paper-plane"></i> CONTACT</div>
+      <div class="tag-line tag-line-right"></div>
+      <div class="tag-box"><i class="fas fa-satellite-dish"></i> CONTACT</div>
     </div>
     <div class="holo-label-tag" id="tag-rightLeg" data-node="rightLeg">
       <div class="tag-line"></div>
@@ -157,568 +145,1042 @@
     </div>
   </div>
 
-  <!-- ===== Instructions / Helper Text ===== -->
-  <div class="hud-instructions" id="hud-instructions">
-    <span class="glitch-glow">CLICK A ROBOT NODE TO BOOT DATA MODULES</span>
-    <div class="navigation-hint">Drag to rotate robot | Scroll to zoom</div>
-  </div>
-
-  <!-- ===== Holographic Tooltip ===== -->
-  <div id="holo-tooltip" class="holo-tooltip">
-    <div class="tooltip-header">
-      <i class="fas fa-circle-notch fa-spin"></i>
-      <span class="tooltip-title">Node Selected</span>
-    </div>
-    <div class="tooltip-body">Establishing uplink...</div>
+  <!-- ===== HOLOGRAPHIC TOOLTIP ===== -->
+  <div class="holo-tooltip" id="holo-tooltip">
     <div class="tooltip-corner tc-tl"></div>
     <div class="tooltip-corner tc-tr"></div>
     <div class="tooltip-corner tc-bl"></div>
     <div class="tooltip-corner tc-br"></div>
+    <div class="tooltip-header">
+      <i class="fas fa-circle-dot" style="font-size:0.5rem;"></i>
+      <span class="tooltip-title">NODE</span>
+    </div>
+    <div class="tooltip-body">—</div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- ===== HOLOGRAPHIC DATA PANELS (GLASS) ==== -->
-  <!-- ========================================== -->
+  <!-- ===== HUD STATUS BAR ===== -->
+  <div class="cyber-hud">
+    <div class="hud-item">
+      <div class="hud-title">CURSOR XYZ</div>
+      <div class="hud-value"><span id="hud-coordinates">X: 0.00 Y: 0.00 Z: 0.00</span></div>
+    </div>
+    <div class="hud-item hud-center" id="hud-voice-card" style="display:none;">
+      <div class="hud-title">VOICE LINK</div>
+      <div class="hud-value" id="hud-voice-status"><span class="pulse-dot-purple"></span> STANDBY</div>
+    </div>
+    <div class="hud-item hud-right">
+      <div class="hud-title">SYS STATUS</div>
+      <div class="hud-value"><div class="pulse-dot"></div> AI CORE ONLINE</div>
+    </div>
+  </div>
 
-  <!-- Panel: About Me (Head/Face) -->
+  <!-- ===== CENTER HUD INSTRUCTIONS ===== -->
+  <div class="hud-instructions" id="hud-instructions">
+    <span class="glitch-glow">[ CLICK A ROBOT NODE TO EXPLORE ]</span>
+    <div class="navigation-hint">DRAG TO ORBIT &nbsp;·&nbsp; SCROLL TO ZOOM &nbsp;·&nbsp; CLICK NODE TO INTERACT</div>
+  </div>
+
+  <!-- ================================================================
+       ===== GLASS PANEL: HEAD → ABOUT / PROFILE ======================
+       ================================================================ -->
   <div class="holo-panel" id="panel-head">
-    <button class="panel-close-btn" data-node="head">&times;</button>
+    <button class="panel-close-btn" title="Close"><i class="fas fa-times"></i></button>
     <div class="panel-header">
       <h2><span class="cyber-num">01.</span> Neural Profile</h2>
-      <p class="panel-subtitle">Accessing biographical archives...</p>
+      <div class="panel-subtitle">// BIOGRAPHICAL ARCHIVES — IDENTITY NODE ONLINE</div>
     </div>
     <div class="panel-content">
       <div class="about-grid-cyber">
-        <div class="about-pic-wrap">
-          <div class="cyber-frame">
-            <div class="cyber-frame-avatar">
-              <i class="fas fa-user-astronaut"></i>
+
+        <!-- Profile Card -->
+        <div class="profile-card-premium">
+          <div class="profile-card-bg"></div>
+          <div class="about-pic-wrap">
+            <div class="cyber-frame">
+              <div class="cyber-frame-avatar"><i class="fas fa-user-astronaut"></i></div>
+              <div class="frame-scanner"></div>
             </div>
-            <div class="frame-scanner"></div>
-          </div>
-          <div class="profile-stats">
-            <span class="status-indicator-green"></span> Available for Collaborations
+            <div class="profile-id-info">
+              <div class="profile-name-main">Akshai Santhosh</div>
+              <div class="profile-role-tags">
+                <span class="role-badge-premium"><i class="fas fa-microchip"></i> AI Engineering Student</span>
+                <span class="role-badge-premium role-badge-magenta"><i class="fas fa-flask"></i> Aspiring AI Research Engineer</span>
+              </div>
+              <div class="profile-stats">
+                <div class="status-indicator-green"></div>
+                <span>Available for Internship & Collaboration</span>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Bio -->
         <div class="about-bio-text">
-          <h3>Akshai Santhosh</h3>
-          <p class="role-badge"><i class="fas fa-code"></i> B.Tech CSE (AI) Student</p>
           <p class="bio-desc">
-            First-year student at <strong>Amal Jyothi College of Engineering</strong>, pursuing Computer Science &amp;
-            Technology (Artificial Intelligence). Passionate about scripting automation tools, configuring intelligent
-            models, and exploring the next generation of user experience concepts.
+            I'm <strong>Akshai Santhosh</strong>, a B.Tech student pursuing <strong>Computer Science & Technology (Artificial Intelligence)</strong> at <strong>Amal Jyothi College of Engineering</strong>. My journey began with a "Hello World!" and evolved into a deep passion for AI, robotics, and building intelligent systems.
           </p>
           <div class="cyber-quote">
             <i class="fas fa-quote-left"></i>
-            <span>Developing digital systems that blend functionality, premium aesthetic feedback, and human-centric
-              design.</span>
-          </div>
-          <div class="bio-quick-details">
-            <div class="detail-badge"><i class="fas fa-graduation-cap"></i> CSE (AI) - 1st Year</div>
-            <div class="detail-badge"><i class="fas fa-university"></i> Amal Jyothi College</div>
-            <div class="detail-badge"><i class="fas fa-brain"></i> AI & Software Engineering</div>
+            "Code is the language of the future — and I'm here to write it."
           </div>
         </div>
+
+        <!-- Animated Stats -->
+        <div class="about-stats-row">
+          <div class="about-stat-card">
+            <div class="about-stat-num" data-target="5">0</div>
+            <div class="about-stat-label">Projects</div>
+          </div>
+          <div class="about-stat-card">
+            <div class="about-stat-num" data-target="3">0</div>
+            <div class="about-stat-label">Certificates</div>
+          </div>
+          <div class="about-stat-card">
+            <div class="about-stat-num" data-target="12">0</div>
+            <div class="about-stat-label">Technologies</div>
+          </div>
+          <div class="about-stat-card">
+            <div class="about-stat-num" data-target="2">0</div>
+            <div class="about-stat-label">Hackathons</div>
+          </div>
+        </div>
+
+        <!-- Quick Details -->
+        <div class="bio-quick-details">
+          <div class="detail-badge"><i class="fas fa-graduation-cap"></i> B.Tech CSE (AI) — 1st Year</div>
+          <div class="detail-badge"><i class="fas fa-university"></i> Amal Jyothi College of Engineering</div>
+          <div class="detail-badge"><i class="fas fa-map-marker-alt"></i> Kerala, India</div>
+          <div class="detail-badge"><i class="fas fa-heart"></i> AI, Robotics, ML, Open Source</div>
+          <div class="detail-badge"><i class="fas fa-bullseye"></i> Goal: AI Research Engineer</div>
+          <div class="detail-badge"><i class="fas fa-language"></i> English, Malayalam</div>
+        </div>
+
+        <!-- Career Objective -->
+        <div class="career-objective-block">
+          <div class="career-obj-header"><i class="fas fa-crosshairs"></i> Career Objective</div>
+          <p class="career-obj-text">To become an <strong>AI Research Engineer</strong> who builds impactful, intelligent systems — from foundational machine learning algorithms to real-world robotics applications. Aspiring to publish research, contribute to open-source AI, and eventually lead innovation at the frontier of artificial intelligence.</p>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Panel: Skills (Brain) — ID must match node name "brain" for zoomToNode() -->
+  <!-- ================================================================
+       ===== GLASS PANEL: BRAIN → SKILLS =================================
+       ================================================================ -->
   <div class="holo-panel" id="panel-brain">
-    <button class="panel-close-btn" data-node="brain">&times;</button>
+    <button class="panel-close-btn" title="Close"><i class="fas fa-times"></i></button>
     <div class="panel-header">
-      <h2><span class="cyber-num">02.</span> Cognitive Network</h2>
-      <p class="panel-subtitle">Skill node matrix — click a neural node to decode specs</p>
+      <h2><span class="cyber-num">02.</span> Cognitive Core</h2>
+      <div class="panel-subtitle">// NEURAL SKILL MATRIX — ANALYTICS ONLINE</div>
     </div>
     <div class="panel-content">
 
-      <!-- ─── Category Tab Nav ─── -->
+      <!-- Skill Category Tabs -->
       <div class="skill-tabs-nav">
-        <button class="skill-tab-btn active" data-skill-tab="all">All Skills</button>
-        <button class="skill-tab-btn" data-skill-tab="lang">Languages</button>
-        <button class="skill-tab-btn" data-skill-tab="tools">Tools</button>
-        <button class="skill-tab-btn" data-skill-tab="soft">Soft Skills</button>
+        <button class="skill-tab-btn active" data-stab="all">All</button>
+        <button class="skill-tab-btn" data-stab="programming">Programming</button>
+        <button class="skill-tab-btn" data-stab="web">Web Dev</button>
+        <button class="skill-tab-btn" data-stab="ai">AI & ML</button>
+        <button class="skill-tab-btn" data-stab="tools">Tools</button>
       </div>
 
-      <!-- ─── Programming Languages ─── -->
-      <div class="skill-section" data-skill-section="lang">
+      <!-- Programming Languages -->
+      <div class="skill-section" data-category="programming">
         <div class="skill-section-header"><i class="fas fa-code"></i> Programming Languages</div>
-
         <div class="skill-card-row">
-          <div class="skill-card" data-skill="python">
+          <div class="skill-card" style="--sc:#00f0ff">
             <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fab fa-python"></i></div>
             <div class="skill-card-body">
               <div class="skill-card-name">Python</div>
-              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:75%;--c:#00f0ff"></div></div>
-              <div class="skill-card-meta"><span class="skill-badge">75%</span><span class="skill-tag">Data &amp; Automation</span></div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#00f0ff;--w:75%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#00f0ff">75%</span>
+                <span class="skill-tag">Intermediate</span>
+              </div>
             </div>
           </div>
-          <div class="skill-card" data-skill="c">
-            <div class="skill-card-icon" style="--sc:#9d00ff"><i class="fas fa-memory"></i></div>
+          <div class="skill-card" style="--sc:#9d00ff">
+            <div class="skill-card-icon" style="--sc:#9d00ff"><i class="fab fa-java"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">Java</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#9d00ff;--w:55%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#9d00ff">55%</span>
+                <span class="skill-tag">Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card-row">
+          <div class="skill-card" style="--sc:#00f0ff">
+            <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fas fa-c"></i></div>
             <div class="skill-card-body">
               <div class="skill-card-name">C Language</div>
-              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:70%;--c:#9d00ff"></div></div>
-              <div class="skill-card-meta"><span class="skill-badge">70%</span><span class="skill-tag">Systems &amp; Logic</span></div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#00f0ff;--w:70%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#00f0ff">70%</span>
+                <span class="skill-tag">Intermediate</span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="skill-card-row">
-          <div class="skill-card" data-skill="cpp">
-            <div class="skill-card-icon" style="--sc:#ff007f"><i class="fas fa-layer-group"></i></div>
+          <div class="skill-card" style="--sc:#ff007f">
+            <div class="skill-card-icon" style="--sc:#ff007f"><i class="fas fa-code"></i></div>
             <div class="skill-card-body">
-              <div class="skill-card-name">C++ Development</div>
-              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:65%;--c:#ff007f"></div></div>
-              <div class="skill-card-meta"><span class="skill-badge">65%</span><span class="skill-tag">OOP &amp; DSA</span></div>
-            </div>
-          </div>
-          <div class="skill-card" data-skill="mysql">
-            <div class="skill-card-icon" style="--sc:#39ff14"><i class="fas fa-database"></i></div>
-            <div class="skill-card-body">
-              <div class="skill-card-name">MySQL Databases</div>
-              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:60%;--c:#39ff14"></div></div>
-              <div class="skill-card-meta"><span class="skill-badge">60%</span><span class="skill-tag">Relational DB</span></div>
+              <div class="skill-card-name">JavaScript</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#ff007f;--w:50%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#ff007f">50%</span>
+                <span class="skill-tag">Learning</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ─── Tools & Ecosystem ─── -->
-      <div class="skill-section" data-skill-section="tools">
-        <div class="skill-section-header"><i class="fas fa-tools"></i> Tools &amp; Ecosystem</div>
-
+      <!-- Web Development -->
+      <div class="skill-section" data-category="web">
+        <div class="skill-section-header"><i class="fas fa-globe"></i> Web Development</div>
         <div class="skill-card-row">
-          <div class="skill-card" data-skill="vscode">
-            <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fas fa-code"></i></div>
+          <div class="skill-card" style="--sc:#ff6b35">
+            <div class="skill-card-icon" style="--sc:#ff6b35"><i class="fab fa-html5"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">HTML5</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#ff6b35;--w:80%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#ff6b35">80%</span>
+                <span class="skill-tag">Proficient</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card" style="--sc:#2965f1">
+            <div class="skill-card-icon" style="--sc:#2965f1"><i class="fab fa-css3-alt"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">CSS3</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#2965f1;--w:75%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#2965f1">75%</span>
+                <span class="skill-tag">Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI & Machine Learning -->
+      <div class="skill-section" data-category="ai">
+        <div class="skill-section-header"><i class="fas fa-brain"></i> AI & Machine Learning</div>
+        <div class="skill-card-row">
+          <div class="skill-card" style="--sc:#39ff14">
+            <div class="skill-card-icon" style="--sc:#39ff14"><i class="fas fa-robot"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">Scikit-learn</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#39ff14;--w:60%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#39ff14">60%</span>
+                <span class="skill-tag">Learning</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card" style="--sc:#ff9d00">
+            <div class="skill-card-icon" style="--sc:#ff9d00"><i class="fas fa-project-diagram"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">TensorFlow</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#ff9d00;--w:35%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#ff9d00">35%</span>
+                <span class="skill-tag">Exploring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card-row">
+          <div class="skill-card" style="--sc:#00f0ff">
+            <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fas fa-eye"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">OpenCV</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#00f0ff;--w:45%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#00f0ff">45%</span>
+                <span class="skill-tag">Learning</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card" style="--sc:#9d00ff">
+            <div class="skill-card-icon" style="--sc:#9d00ff"><i class="fas fa-search"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">YOLO</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#9d00ff;--w:30%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#9d00ff">30%</span>
+                <span class="skill-tag">Exploring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card-row">
+          <div class="skill-card" style="--sc:#ff007f">
+            <div class="skill-card-icon" style="--sc:#ff007f"><i class="fas fa-database"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">MySQL</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#ff007f;--w:60%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#ff007f">60%</span>
+                <span class="skill-tag">Intermediate</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card" style="--sc:#00f0ff">
+            <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fas fa-chart-line"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">NumPy / Pandas</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#00f0ff;--w:55%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#00f0ff">55%</span>
+                <span class="skill-tag">Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="skill-section" data-category="tools">
+        <div class="skill-section-header"><i class="fas fa-tools"></i> Tools & Environment</div>
+        <div class="skill-card-row">
+          <div class="skill-card" style="--sc:#00f0ff">
+            <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fab fa-git-alt"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">Git</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#00f0ff;--w:65%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#00f0ff">65%</span>
+                <span class="skill-tag">Intermediate</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-card" style="--sc:#ff007f">
+            <div class="skill-card-icon" style="--sc:#ff007f"><i class="fab fa-github"></i></div>
+            <div class="skill-card-body">
+              <div class="skill-card-name">GitHub</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#ff007f;--w:65%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#ff007f">65%</span>
+                <span class="skill-tag">Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card-row">
+          <div class="skill-card" style="--sc:#9d00ff">
+            <div class="skill-card-icon" style="--sc:#9d00ff"><i class="fas fa-laptop-code"></i></div>
             <div class="skill-card-body">
               <div class="skill-card-name">VS Code</div>
-              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:80%;--c:#00f0ff"></div></div>
-              <div class="skill-card-meta"><span class="skill-badge">80%</span><span class="skill-tag">IDE</span></div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#9d00ff;--w:85%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#9d00ff">85%</span>
+                <span class="skill-tag">Proficient</span>
+              </div>
             </div>
           </div>
-          <div class="skill-card" data-skill="jupyter">
-            <div class="skill-card-icon" style="--sc:#ff9d00"><i class="fas fa-book-open"></i></div>
+          <div class="skill-card" style="--sc:#39ff14">
+            <div class="skill-card-icon" style="--sc:#39ff14"><i class="fas fa-mobile-alt"></i></div>
             <div class="skill-card-body">
-              <div class="skill-card-name">Jupyter Notebooks</div>
-              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:70%;--c:#ff9d00"></div></div>
-              <div class="skill-card-meta"><span class="skill-badge">70%</span><span class="skill-tag">ML &amp; Analysis</span></div>
+              <div class="skill-card-name">Flutter</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#39ff14;--w:25%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#39ff14">25%</span>
+                <span class="skill-tag">Exploring</span>
+              </div>
             </div>
           </div>
         </div>
-
         <div class="skill-card-row">
-          <div class="skill-card" data-skill="git">
-            <div class="skill-card-icon" style="--sc:#ff007f"><i class="fab fa-git-alt"></i></div>
+          <div class="skill-card" style="--sc:#ff9d00">
+            <div class="skill-card-icon" style="--sc:#ff9d00"><i class="fas fa-book"></i></div>
             <div class="skill-card-body">
-              <div class="skill-card-name">Git &amp; GitHub</div>
-              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:60%;--c:#ff007f"></div></div>
-              <div class="skill-card-meta"><span class="skill-badge">60%</span><span class="skill-tag">Version Control</span></div>
+              <div class="skill-card-name">Jupyter Notebook</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#ff9d00;--w:70%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#ff9d00">70%</span>
+                <span class="skill-tag">Intermediate</span>
+              </div>
             </div>
           </div>
-          <div class="skill-card" data-skill="ai">
-            <div class="skill-card-icon" style="--sc:#9d00ff"><i class="fas fa-robot"></i></div>
+          <div class="skill-card" style="--sc:#00f0ff">
+            <div class="skill-card-icon" style="--sc:#00f0ff"><i class="fas fa-terminal"></i></div>
             <div class="skill-card-body">
-              <div class="skill-card-name">AI / LLM Tools</div>
-              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--w:70%;--c:#9d00ff"></div></div>
-              <div class="skill-card-meta"><span class="skill-badge">70%</span><span class="skill-tag">Prompt Eng.</span></div>
+              <div class="skill-card-name">Linux / Terminal</div>
+              <div class="skill-card-bar-bg"><div class="skill-card-bar-fill" style="--c:#00f0ff;--w:55%"></div></div>
+              <div class="skill-card-meta">
+                <span class="skill-badge" style="--c:#00f0ff">55%</span>
+                <span class="skill-tag">Learning</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ─── Soft Skills ─── -->
-      <div class="skill-section" data-skill-section="soft">
-        <div class="skill-section-header"><i class="fas fa-brain"></i> Soft Competencies</div>
+      <!-- Soft Skills -->
+      <div class="skill-section" data-category="all">
+        <div class="skill-section-header"><i class="fas fa-star"></i> Soft Skills</div>
         <div class="soft-skills-grid-cyber">
-          <span class="soft-tag"><i class="fas fa-puzzle-piece"></i> Problem Solving</span>
-          <span class="soft-tag"><i class="fas fa-users"></i> Team Collaboration</span>
-          <span class="soft-tag"><i class="fas fa-lightbulb"></i> Creative Logic</span>
-          <span class="soft-tag"><i class="fas fa-comments"></i> Communication</span>
-          <span class="soft-tag"><i class="fas fa-clock"></i> Time Management</span>
-          <span class="soft-tag"><i class="fas fa-bolt"></i> Rapid Adaptability</span>
-          <span class="soft-tag"><i class="fas fa-search"></i> Research Mindset</span>
-          <span class="soft-tag"><i class="fas fa-handshake"></i> Leadership</span>
+          <div class="soft-tag"><i class="fas fa-puzzle-piece"></i> Problem Solving</div>
+          <div class="soft-tag"><i class="fas fa-users"></i> Team Collaboration</div>
+          <div class="soft-tag"><i class="fas fa-lightbulb"></i> Creative Thinking</div>
+          <div class="soft-tag"><i class="fas fa-comments"></i> Communication</div>
+          <div class="soft-tag"><i class="fas fa-clock"></i> Time Management</div>
+          <div class="soft-tag"><i class="fas fa-book-reader"></i> Quick Learner</div>
+          <div class="soft-tag"><i class="fas fa-search"></i> Research Mindset</div>
+          <div class="soft-tag"><i class="fas fa-handshake"></i> Leadership</div>
         </div>
       </div>
 
-    </div>
+    </div><!-- /panel-content -->
   </div>
 
-  <!-- Panel: Projects (Right Chest) -->
+  <!-- ================================================================
+       ===== GLASS PANEL: RIGHT CHEST → PROJECTS =====================
+       ================================================================ -->
   <div class="holo-panel" id="panel-rightChest">
-    <button class="panel-close-btn" data-node="rightChest">&times;</button>
+    <button class="panel-close-btn" title="Close"><i class="fas fa-times"></i></button>
     <div class="panel-header">
-      <h2><span class="cyber-num">03.</span> Project Repositories</h2>
-      <p class="panel-subtitle">Accessing local and cloud developments...</p>
+      <h2><span class="cyber-num">03.</span> Projects Node</h2>
+      <div class="panel-subtitle">// ACTIVE REPOSITORIES — 5 DEPLOYMENTS MAPPED</div>
     </div>
     <div class="panel-content">
+
       <div class="cyber-tabs-nav">
-        <button class="cyber-tab-btn active" data-tab="active-proj">Active Work</button>
-        <button class="cyber-tab-btn" data-tab="ideas-proj">Innovation Roadmap</button>
+        <button class="cyber-tab-btn active" data-tab="tab-working-proj"><i class="fas fa-check-circle"></i> Working</button>
+        <button class="cyber-tab-btn" data-tab="tab-ideas-proj"><i class="fas fa-lightbulb"></i> Ideas</button>
       </div>
 
-      <div class="tab-panel-content active" id="tab-active-proj">
+      <!-- Working Projects -->
+      <div class="tab-panel-content active" id="tab-working-proj">
         <div class="projects-cards-container">
-          <!-- Card 1 -->
-          <div class="project-cyber-card">
-            <div class="proj-card-icon"><i class="fas fa-wallet"></i></div>
-            <h3>Trip Budget Guessing</h3>
-            <p>A Python terminal/GUI application designed to estimate and categorize expenses (transportation, lodging,
-              dining, recreation) based on user trip parameters.</p>
-            <div class="proj-tech-stack">
-              <span>Python</span><span>Data Logic</span><span>Interactive Inputs</span>
-            </div>
-            <div class="proj-footer-links">
-              <a href="https://github.com/akshaysanthosh2912-ops" target="_blank"><i class="fab fa-github"></i>
-                Repository</a>
-            </div>
-          </div>
-          <!-- Card 2 -->
-          <div class="project-cyber-card">
-            <div class="proj-card-icon"><i class="fas fa-question-circle"></i></div>
-            <h3>Interactive Quiz Engine</h3>
-            <p>Robust C command line utility offering modular quizzes. Utilizes file streams to store scores and fetch
-              dynamic question templates, applying core structural logic.</p>
-            <div class="proj-tech-stack">
-              <span>C</span><span>Control Flow</span><span>File I/O</span>
-            </div>
-            <div class="proj-footer-links">
-              <a href="https://github.com/akshaysanthosh2912-ops" target="_blank"><i class="fab fa-github"></i>
-                Repository</a>
-            </div>
-          </div>
-          <!-- Card 3 -->
-          <div class="project-cyber-card">
-            <div class="proj-card-icon"><i class="fas fa-robot"></i></div>
-            <h3>Simple NLP Chatbot</h3>
-            <p>Lightweight Python conversation client demonstrating basic NLP, matching inputs using keyword parsing
-              schemas and regular expression templates.</p>
-            <div class="proj-tech-stack">
-              <span>Python</span><span>RegEx</span><span>Pattern Matching</span>
-            </div>
-            <div class="proj-footer-links">
-              <a href="https://github.com/akshaysanthosh2912-ops" target="_blank"><i class="fab fa-github"></i>
-                Repository</a>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="tab-panel-content" id="tab-ideas-proj">
-        <div class="projects-cards-container single-item">
-          <div class="project-cyber-card idea-type">
-            <div class="idea-badge-cyber">CONCEPT MODEL</div>
-            <h3>Faculty Availability Matrix</h3>
-            <div class="idea-block">
-              <strong>Problem:</strong> Students wasting significant classroom hours seeking professors on college
-              premises without active coordinate/status databases.
+          <!-- Project 1: Trip Budget -->
+          <div class="project-cyber-card project-featured">
+            <div class="project-card-top">
+              <div class="proj-card-icon"><i class="fas fa-wallet"></i></div>
+              <div class="proj-card-badges">
+                <span class="proj-status-badge status-complete"><i class="fas fa-circle"></i> Complete</span>
+                <span class="proj-featured-badge"><i class="fas fa-star"></i> Featured</span>
+              </div>
             </div>
-            <div class="idea-block">
-              <strong>Proposed Solution:</strong> A real-time availability server powered by Python/Flask/SQL. Faculty
-              members can toggle status nodes while students check statuses dynamically.
-            </div>
+            <h3>Trip Budget Estimator</h3>
+            <p>A Python application that helps users plan travel budgets intelligently. Takes destination, duration, and preferences to calculate estimates with detailed breakdowns for transport, food, and accommodation.</p>
             <div class="proj-tech-stack">
-              <span>Python</span><span>Flask</span><span>SQL</span><span>Scheduling Systems</span>
+              <span>Python</span><span>Logic Building</span><span>User Input</span><span>File I/O</span>
+            </div>
+            <div class="proj-footer-links">
+              <a href="https://github.com/akshaysanthosh2912-ops" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+              <span class="proj-solo-tag"><i class="fas fa-user"></i> Solo Dev</span>
             </div>
           </div>
+
+          <!-- Project 2: Quiz Game -->
+          <div class="project-cyber-card project-featured">
+            <div class="project-card-top">
+              <div class="proj-card-icon"><i class="fas fa-question-circle"></i></div>
+              <div class="proj-card-badges">
+                <span class="proj-status-badge status-complete"><i class="fas fa-circle"></i> Complete</span>
+                <span class="proj-featured-badge"><i class="fas fa-star"></i> Featured</span>
+              </div>
+            </div>
+            <h3>Interactive Quiz Game</h3>
+            <p>An interactive quiz application built in C. Features multiple-choice questions, score tracking, and difficulty levels — demonstrating control flow, arrays, and file handling.</p>
+            <div class="proj-tech-stack">
+              <span>C Language</span><span>Arrays</span><span>Control Flow</span><span>File Handling</span>
+            </div>
+            <div class="proj-footer-links">
+              <a href="https://github.com/akshaysanthosh2912-ops" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+              <span class="proj-solo-tag"><i class="fas fa-user"></i> Solo Dev</span>
+            </div>
+          </div>
+
+          <!-- Project 3: Chatbot -->
+          <div class="project-cyber-card">
+            <div class="project-card-top">
+              <div class="proj-card-icon"><i class="fas fa-robot"></i></div>
+              <div class="proj-card-badges">
+                <span class="proj-status-badge status-complete"><i class="fas fa-circle"></i> Complete</span>
+              </div>
+            </div>
+            <h3>AI Conversational Chatbot</h3>
+            <p>A Python chatbot using NLP keyword matching and pattern recognition to simulate intelligent conversation. Demonstrates basic natural language processing and decision trees.</p>
+            <div class="proj-tech-stack">
+              <span>Python</span><span>NLP Basics</span><span>String Processing</span><span>RegEx</span>
+            </div>
+            <div class="proj-footer-links">
+              <a href="https://github.com/akshaysanthosh2912-ops" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+              <span class="proj-solo-tag"><i class="fas fa-user"></i> Solo Dev</span>
+            </div>
+          </div>
+
+          <!-- Project 4: Portfolio -->
+          <div class="project-cyber-card">
+            <div class="project-card-top">
+              <div class="proj-card-icon"><i class="fas fa-globe"></i></div>
+              <div class="proj-card-badges">
+                <span class="proj-status-badge status-active"><i class="fas fa-circle"></i> Live</span>
+              </div>
+            </div>
+            <h3>AI Portfolio v3.0</h3>
+            <p>This very portfolio — a fully interactive 3D experience built with Three.js, WebGL, GSAP animations, Web Audio API synth, and voice recognition navigation. A premium showcase of creative engineering.</p>
+            <div class="proj-tech-stack">
+              <span>Three.js</span><span>WebGL</span><span>GSAP</span><span>Web Audio</span><span>Speech API</span>
+            </div>
+            <div class="proj-footer-links">
+              <a href="https://github.com/akshaysanthosh2912-ops" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+              <span class="proj-solo-tag"><i class="fas fa-user"></i> Solo Dev</span>
+            </div>
+          </div>
+
         </div>
-      </div>
-    </div>
+      </div><!-- /tab-working-proj -->
+
+      <!-- Innovation Ideas -->
+      <div class="tab-panel-content" id="tab-ideas-proj">
+        <div class="projects-cards-container">
+
+          <div class="project-cyber-card idea-type">
+            <span class="idea-badge-cyber"><i class="fas fa-lightbulb"></i> CONCEPT</span>
+            <h3><i class="fas fa-chalkboard-teacher"></i> Teacher Availability System</h3>
+            <div class="idea-block">
+              <strong><i class="fas fa-exclamation-triangle"></i> Problem</strong>
+              Students waste time walking to teachers' offices only to find them unavailable. No real-time campus availability system exists.
+            </div>
+            <div class="idea-block">
+              <strong><i class="fas fa-check-circle"></i> Solution</strong>
+              Python-based system where teachers update real-time status. Students check availability via a web interface.
+            </div>
+            <div class="idea-block">
+              <strong><i class="fas fa-rocket"></i> Future Scope</strong>
+              Mobile notifications, appointment booking, and AI-based availability prediction.
+            </div>
+            <div class="proj-tech-stack"><span>Python</span><span>Flask</span><span>Database</span><span>Scheduling</span></div>
+          </div>
+
+          <div class="project-cyber-card idea-type">
+            <span class="idea-badge-cyber"><i class="fas fa-lightbulb"></i> CONCEPT</span>
+            <h3><i class="fas fa-eye"></i> AI Object Detection Security System</h3>
+            <div class="idea-block">
+              <strong><i class="fas fa-exclamation-triangle"></i> Problem</strong>
+              Campus security systems lack intelligent real-time threat detection for unauthorized access.
+            </div>
+            <div class="idea-block">
+              <strong><i class="fas fa-check-circle"></i> Solution</strong>
+              YOLO-powered object detection system with real-time alerting, integrated with college CCTV infrastructure.
+            </div>
+            <div class="proj-tech-stack"><span>Python</span><span>YOLO</span><span>OpenCV</span><span>Flask</span></div>
+          </div>
+
+        </div>
+      </div><!-- /tab-ideas-proj -->
+
+    </div><!-- /panel-content -->
   </div>
 
-  <!-- Panel: Certificates (Left Chest) -->
+  <!-- ================================================================
+       ===== GLASS PANEL: LEFT CHEST → CREDENTIALS ===================
+       ================================================================ -->
   <div class="holo-panel" id="panel-leftChest">
-    <button class="panel-close-btn" data-node="leftChest">&times;</button>
+    <button class="panel-close-btn" title="Close"><i class="fas fa-times"></i></button>
     <div class="panel-header">
-      <h2><span class="cyber-num">04.</span> Cryptographic Vault</h2>
-      <p class="panel-subtitle">Verifying verified credentials and challenge entries...</p>
+      <h2><span class="cyber-num">04.</span> Credentials Vault</h2>
+      <div class="panel-subtitle">// SECURITY CLEARANCE VERIFIED — 3 RECORDS LOADED</div>
     </div>
     <div class="panel-content">
+
       <div class="vault-certificates-grid">
-        <!-- Cert 1 -->
-        <div class="cert-vault-card"
-          onclick="openCertImageModal('cert1.jpg', 'NASA Space Apps Challenge 2025 Certificate')">
+
+        <!-- Certificate 1 -->
+        <div class="cert-vault-card cert-featured" onclick="openCertImageModal('cert1.jpg', 'NASA Space Apps Challenge 2025')">
           <div class="cert-vault-preview">
-            <img src="cert1.jpg" alt="NASA Space Apps" />
-            <div class="vault-overlay-scan"><i class="fas fa-eye"></i> SCAN CREDENTIAL</div>
+            <img src="cert1.jpg" alt="NASA Space Apps Challenge 2025" loading="lazy" />
+            <div class="vault-overlay-scan"><i class="fas fa-expand-alt"></i> VIEW CERT</div>
           </div>
           <div class="cert-vault-info">
-            <h4>NASA Space Apps Challenge 2025</h4>
-            <span class="cert-org">NASA / Global Hackathon</span>
+            <div class="cert-org-badge"><i class="fas fa-star"></i> Featured Achievement</div>
+            <h4>NASA Space Apps Challenge</h4>
+            <div class="cert-org"><i class="fas fa-rocket"></i> NASA — Global Hackathon</div>
+            <div class="cert-year-row">
+              <span class="cert-year"><i class="fas fa-calendar"></i> 2025</span>
+              <span class="cert-type-tag">Participation</span>
+            </div>
+            <button class="cert-view-btn" onclick="event.stopPropagation(); openCertImageModal('cert1.jpg', 'NASA Space Apps Challenge 2025')">
+              <i class="fas fa-search-plus"></i> View Certificate
+            </button>
           </div>
         </div>
-        <!-- Cert 2 -->
-        <div class="cert-vault-card"
-          onclick="openCertImageModal('cert2.jpg', 'Smart India Hackathon 2025 Certificate')">
+
+        <!-- Certificate 2 -->
+        <div class="cert-vault-card cert-featured" onclick="openCertImageModal('cert2.jpg', 'Smart India Hackathon 2025')">
           <div class="cert-vault-preview">
-            <img src="cert2.jpg" alt="Smart India Hackathon" />
-            <div class="vault-overlay-scan"><i class="fas fa-eye"></i> SCAN CREDENTIAL</div>
+            <img src="cert2.jpg" alt="Smart India Hackathon 2025" loading="lazy" />
+            <div class="vault-overlay-scan"><i class="fas fa-expand-alt"></i> VIEW CERT</div>
           </div>
           <div class="cert-vault-info">
-            <h4>Smart India Hackathon 2025</h4>
-            <span class="cert-org">Govt. of India / AICTE</span>
+            <div class="cert-org-badge"><i class="fas fa-star"></i> Featured Achievement</div>
+            <h4>Smart India Hackathon</h4>
+            <div class="cert-org"><i class="fas fa-flag"></i> Government of India — SIH</div>
+            <div class="cert-year-row">
+              <span class="cert-year"><i class="fas fa-calendar"></i> 2025</span>
+              <span class="cert-type-tag">Participation</span>
+            </div>
+            <button class="cert-view-btn" onclick="event.stopPropagation(); openCertImageModal('cert2.jpg', 'Smart India Hackathon 2025')">
+              <i class="fas fa-search-plus"></i> View Certificate
+            </button>
           </div>
         </div>
-        <!-- Cert 3 -->
+
+        <!-- Certificate 3 -->
         <div class="cert-vault-card" onclick="openCertImageModal('cert3.jpg', 'Your Pathway to App Development')">
           <div class="cert-vault-preview">
-            <img src="cert3.jpg" alt="Pathway to App Dev" />
-            <div class="vault-overlay-scan"><i class="fas fa-eye"></i> SCAN CREDENTIAL</div>
+            <img src="cert3.jpg" alt="Your Pathway to App Development" loading="lazy" />
+            <div class="vault-overlay-scan"><i class="fas fa-expand-alt"></i> VIEW CERT</div>
           </div>
           <div class="cert-vault-info">
-            <h4>Pathway to App Development</h4>
-            <span class="cert-org">App Development Bootcamp</span>
+            <h4>Your Pathway to App Development</h4>
+            <div class="cert-org"><i class="fas fa-graduation-cap"></i> Online Learning Platform</div>
+            <div class="cert-year-row">
+              <span class="cert-year"><i class="fas fa-calendar"></i> 2024</span>
+              <span class="cert-type-tag">Completion</span>
+            </div>
+            <button class="cert-view-btn" onclick="event.stopPropagation(); openCertImageModal('cert3.jpg', 'Your Pathway to App Development')">
+              <i class="fas fa-search-plus"></i> View Certificate
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Achievements Summary -->
+      <div class="achievements-summary">
+        <div class="achievement-summary-header"><i class="fas fa-trophy"></i> Hackathon Achievements</div>
+        <div class="achievement-row">
+          <div class="achievement-item-mini">
+            <div class="achievement-icon-mini"><i class="fas fa-rocket"></i></div>
+            <div>
+              <strong>NASA Space Apps Challenge</strong>
+              <span>Global hackathon by NASA — International Participation</span>
+            </div>
+          </div>
+          <div class="achievement-item-mini">
+            <div class="achievement-icon-mini achievement-icon-magenta"><i class="fas fa-flag"></i></div>
+            <div>
+              <strong>Smart India Hackathon (SIH)</strong>
+              <span>India's largest national hackathon — Participation</span>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
-  <!-- Panel: Resume (Right Hand) -->
+  <!-- ================================================================
+       ===== GLASS PANEL: RIGHT HAND → RESUME =======================
+       ================================================================ -->
   <div class="holo-panel" id="panel-rightHand">
-    <button class="panel-close-btn" data-node="rightHand">&times;</button>
+    <button class="panel-close-btn" title="Close"><i class="fas fa-times"></i></button>
     <div class="panel-header">
-      <h2><span class="cyber-num">05.</span> System Specifications</h2>
-      <p class="panel-subtitle">Generating professional telemetry data...</p>
+      <h2><span class="cyber-num">05.</span> Resume Module</h2>
+      <div class="panel-subtitle">// ACADEMIC TIMELINE — CAREER PARAMETERS LOADED</div>
     </div>
-    <div class="panel-content">
-      <div class="resume-cyber-layout">
-        <div class="resume-actions-bar">
+    <div class="panel-content resume-cyber-layout">
+
+      <!-- Action Buttons -->
+      <div class="resume-actions-bar">
+        <div class="resume-btn-row">
           <button class="btn btn-primary btn-cyber-pulse" id="resume-download-btn">
-            <i class="fas fa-download"></i> DOWNLOAD COMPREHENSIVE PDF
+            <i class="fas fa-download"></i> Download Resume
+          </button>
+          <button class="btn btn-resume-outline" id="resume-view-btn">
+            <i class="fas fa-eye"></i> View Resume
           </button>
         </div>
-        <div class="resume-scroll-container">
-          <div class="resume-timeline-block">
-            <h3><i class="fas fa-graduation-cap"></i> Academic Log</h3>
-            <div class="timeline-cyber-item">
-              <div class="time-marker">2025 - PRESENT</div>
-              <div class="time-details">
-                <h4>B.Tech in CSE (Artificial Intelligence)</h4>
-                <p class="institution">Amal Jyothi College of Engineering</p>
-                <p>Acquiring knowledge in object-oriented structures, programming syntaxes, calculus foundations, and
-                  database schemas.</p>
-              </div>
-            </div>
-            <div class="timeline-cyber-item">
-              <div class="time-marker">2023 - 2025</div>
-              <div class="time-details">
-                <h4>Higher Secondary Education</h4>
-                <p class="institution">Specialized Science Stream</p>
-                <p>Focused study on Physics, Mathematics, Chemistry, and Computer Science foundations.</p>
-              </div>
+        <div class="resume-meta">
+          <span><i class="fas fa-clock"></i> Last Updated: <strong>July 2026</strong></span>
+          <span class="resume-format-tag">PDF Format · A4</span>
+        </div>
+      </div>
+
+      <!-- Resume Timeline -->
+      <div class="resume-scroll-container">
+
+        <!-- Education -->
+        <div class="resume-timeline-block">
+          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="timeline-cyber-item">
+            <div class="time-marker">2024 — Present</div>
+            <div class="time-details">
+              <h4>B.Tech Computer Science & Technology (AI)</h4>
+              <div class="institution">Amal Jyothi College of Engineering, Kerala</div>
+              <p>Specializing in Artificial Intelligence. Coursework includes Data Structures, Algorithms, Machine Learning fundamentals, Database Systems, and Object-Oriented Programming.</p>
             </div>
           </div>
-
-          <div class="resume-timeline-block">
-            <h3><i class="fas fa-trophy"></i> Hackathon Records</h3>
-            <div class="timeline-cyber-item">
-              <div class="time-marker">2025</div>
-              <div class="time-details">
-                <h4>Smart India Hackathon (SIH) Participant</h4>
-                <p class="institution">National Level Hackathon</p>
-                <p>Collaborated with engineering peers on complex algorithmic problem statements presented by central
-                  ministries.</p>
-              </div>
-            </div>
-            <div class="timeline-cyber-item">
-              <div class="time-marker">2025</div>
-              <div class="time-details">
-                <h4>NASA Space Apps Challenge Participant</h4>
-                <p class="institution">Global Hackathon Event</p>
-                <p>Developed software prototypes addressing astrophysical data analytics challenges.</p>
-              </div>
+          <div class="timeline-cyber-item">
+            <div class="time-marker">2022 — 2024</div>
+            <div class="time-details">
+              <h4>Higher Secondary Education (Class XII)</h4>
+              <div class="institution">Kerala State Board — Science Stream</div>
+              <p>Completed with distinction in Mathematics, Physics, Computer Science, and Chemistry.</p>
             </div>
           </div>
         </div>
+
+        <!-- Experience / Extracurricular -->
+        <div class="resume-timeline-block">
+          <h3><i class="fas fa-code-branch"></i> Projects & Hackathons</h3>
+          <div class="timeline-cyber-item">
+            <div class="time-marker">2025</div>
+            <div class="time-details">
+              <h4>NASA Space Apps Challenge — Global Participant</h4>
+              <div class="institution">NASA — International Hackathon</div>
+              <p>Participated in the world's largest global hackathon organized by NASA, working on space-tech innovation challenges.</p>
+            </div>
+          </div>
+          <div class="timeline-cyber-item">
+            <div class="time-marker">2025</div>
+            <div class="time-details">
+              <h4>Smart India Hackathon (SIH) — National Participant</h4>
+              <div class="institution">Government of India</div>
+              <p>Competed in India's largest national-level hackathon, representing solutions for real-world government challenges.</p>
+            </div>
+          </div>
+          <div class="timeline-cyber-item">
+            <div class="time-marker">2024 — Present</div>
+            <div class="time-details">
+              <h4>Independent AI/ML Projects</h4>
+              <div class="institution">Self-Directed Development</div>
+              <p>Built Trip Budget Estimator (Python), Quiz Game (C), AI Chatbot (Python NLP), and this 3D portfolio (Three.js + WebGL).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills Summary -->
+        <div class="resume-timeline-block">
+          <h3><i class="fas fa-brain"></i> Core Competencies</h3>
+          <div class="resume-skills-grid">
+            <div class="resume-skill-tag">Python</div>
+            <div class="resume-skill-tag">C / C++</div>
+            <div class="resume-skill-tag">JavaScript</div>
+            <div class="resume-skill-tag">Java</div>
+            <div class="resume-skill-tag">HTML5 / CSS3</div>
+            <div class="resume-skill-tag">Scikit-learn</div>
+            <div class="resume-skill-tag">TensorFlow (Learning)</div>
+            <div class="resume-skill-tag">OpenCV</div>
+            <div class="resume-skill-tag">Three.js</div>
+            <div class="resume-skill-tag">Git / GitHub</div>
+            <div class="resume-skill-tag">MySQL</div>
+            <div class="resume-skill-tag">VS Code</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Panel: Learning Journey (Stomach/Core Reactor) -->
+  <!-- ================================================================
+       ===== GLASS PANEL: CORE REACTOR → JOURNEY ====================
+       ================================================================ -->
   <div class="holo-panel" id="panel-coreReactor">
-    <button class="panel-close-btn" data-node="coreReactor">&times;</button>
+    <button class="panel-close-btn" title="Close"><i class="fas fa-times"></i></button>
     <div class="panel-header">
-      <h2><span class="cyber-num">06.</span> Quantum Reactor Roadmap</h2>
-      <p class="panel-subtitle">Compiling educational and developmental chronology...</p>
+      <h2><span class="cyber-num">06.</span> Energy Reactor</h2>
+      <div class="panel-subtitle">// CHRONOLOGICAL PROGRESSION — ROADMAP STABILIZING</div>
     </div>
     <div class="panel-content">
       <div class="journey-timeline-cyber">
+
         <div class="journey-cyber-node">
-          <div class="node-circle"><i class="fas fa-school"></i></div>
+          <div class="node-circle node-past"><i class="fas fa-baby"></i></div>
           <div class="node-content-cyber">
-            <div class="node-phase">PHASE_01: ACADEMIC CORE</div>
-            <h4>Secondary Education Foundations</h4>
-            <p>Cultivated a passion for logic structures, mathematics, and algorithmic science.</p>
+            <div class="node-phase">PHASE 1 — 2020</div>
+            <h4>First Line of Code</h4>
+            <p>Started programming with Python basics — variables, loops, functions. Wrote my first "Hello, World!" and immediately knew this was my calling.</p>
+            <div class="node-tags"><span>Python</span><span>Beginner</span></div>
           </div>
         </div>
+
         <div class="journey-cyber-node">
-          <div class="node-circle"><i class="fas fa-code-branch"></i></div>
+          <div class="node-circle node-past"><i class="fas fa-code"></i></div>
           <div class="node-content-cyber">
-            <div class="node-phase">PHASE_02: COMPILING INITIATIVES</div>
-            <h4>Introduction to Software Architectures</h4>
-            <p>Self-learned Python and C syntax bases. Built terminal tools and CLI games.</p>
+            <div class="node-phase">PHASE 2 — 2022</div>
+            <h4>Learned C & Advanced Python</h4>
+            <p>Dived deeper into C programming — memory management, pointers, file handling. Built the Quiz Game project. Started exploring data structures and algorithms.</p>
+            <div class="node-tags"><span>C Language</span><span>Data Structures</span><span>Algorithms</span></div>
           </div>
         </div>
+
         <div class="journey-cyber-node">
-          <div class="node-circle"><i class="fas fa-university"></i></div>
+          <div class="node-circle node-past"><i class="fas fa-university"></i></div>
           <div class="node-content-cyber">
-            <div class="node-phase">PHASE_03: UNDERGRADUATE UPLINK</div>
-            <h4>Admitted to B.Tech CSE (AI)</h4>
-            <p>Joined Amal Jyothi College of Engineering. Enrolled in rigorous computer science and AI course curricula.
-            </p>
+            <div class="node-phase">PHASE 3 — 2024</div>
+            <h4>Enrolled in B.Tech CSE (AI)</h4>
+            <p>Began formal education in Computer Science with AI specialization at Amal Jyothi. Started exploring ML frameworks, databases, and web technologies.</p>
+            <div class="node-tags"><span>B.Tech</span><span>AI Specialization</span><span>AJCE</span></div>
           </div>
         </div>
+
         <div class="journey-cyber-node">
-          <div class="node-circle"><i class="fas fa-network-wired"></i></div>
-          <div class="node-content-cyber">
-            <div class="node-phase">PHASE_04: STRESS-TESTING LOGIC</div>
-            <h4>Hackathon Demonstrations</h4>
-            <p>Tested logic bounds in SIH 2025 and NASA Space Apps 2025, solving practical real-world problems in
-              high-pressure team workflows.</p>
+          <div class="node-circle node-active"><i class="fas fa-rocket"></i></div>
+          <div class="node-content-cyber node-content-active">
+            <div class="node-phase">PHASE 4 — 2025 (ACTIVE)</div>
+            <h4>First Hackathons & AI Projects</h4>
+            <p>Participated in NASA Space Apps Challenge and Smart India Hackathon. Built AI Chatbot and this 3D portfolio. Started learning TensorFlow, OpenCV, and YOLO.</p>
+            <div class="node-tags"><span>NASA Hackathon</span><span>SIH</span><span>Three.js</span><span>NLP</span></div>
           </div>
         </div>
+
+        <div class="journey-cyber-node">
+          <div class="node-circle node-future"><i class="fas fa-brain"></i></div>
+          <div class="node-content-cyber node-content-future">
+            <div class="node-phase">PHASE 5 — 2026–2027 (PLANNED)</div>
+            <h4>AI Research & Internships</h4>
+            <p>Pursue AI/ML internships at tech companies. Contribute to open-source AI projects. Start building real-world ML pipelines and computer vision systems.</p>
+            <div class="node-tags"><span>Internship</span><span>Open Source</span><span>ML Research</span></div>
+          </div>
+        </div>
+
+        <div class="journey-cyber-node">
+          <div class="node-circle node-future"><i class="fas fa-flask"></i></div>
+          <div class="node-content-cyber node-content-future">
+            <div class="node-phase">PHASE 6 — 2027+ (VISION)</div>
+            <h4>AI Research Engineer</h4>
+            <p>Publish AI/ML research papers. Lead engineering teams. Build robotics-AI systems that positively impact millions. Eventually launch an AI startup.</p>
+            <div class="node-tags"><span>Research</span><span>Publications</span><span>AI Startup</span></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Panel: Contact Console (Left Leg) -->
+  <!-- ================================================================
+       ===== GLASS PANEL: LEFT LEG → CONTACT ======================
+       ================================================================ -->
   <div class="holo-panel" id="panel-leftLeg">
-    <button class="panel-close-btn" data-node="leftLeg">&times;</button>
+    <button class="panel-close-btn" title="Close"><i class="fas fa-times"></i></button>
     <div class="panel-header">
-      <h2><span class="cyber-num">07.</span> Communication Console</h2>
-      <p class="panel-subtitle">Initializing direct neural uplink...</p>
+      <h2><span class="cyber-num">07.</span> Comms Console</h2>
+      <div class="panel-subtitle">// NEURAL UPLINK TERMINAL — TRANSMISSION READY</div>
     </div>
     <div class="panel-content">
       <div class="contact-cyber-layout">
+
+        <!-- Contact Links -->
         <div class="contact-hud-links">
-          <div class="hud-contact-card">
-            <div class="card-icon-cyber"><i class="fas fa-envelope"></i></div>
+          <a href="mailto:akshaysanthosh2912@gmail.com" class="hud-contact-card hud-contact-card-glow hud-contact-email">
+            <div class="card-icon-cyber card-icon-cyan"><i class="fas fa-envelope"></i></div>
             <div class="card-text-cyber">
-              <span>MAILBOX ADDRESS</span>
-              <a href="mailto:akshaysanthosh2912@gmail.com">akshaysanthosh2912@gmail.com</a>
+              <span>EMAIL</span>
+              <span>akshaysanthosh2912@gmail.com</span>
             </div>
-          </div>
-          <div class="hud-contact-card">
-            <div class="card-icon-cyber"><i class="fab fa-linkedin-in"></i></div>
+          </a>
+          <a href="https://github.com/akshaysanthosh2912-ops" target="_blank" rel="noopener" class="hud-contact-card hud-contact-card-glow hud-contact-github">
+            <div class="card-icon-cyber card-icon-white"><i class="fab fa-github"></i></div>
             <div class="card-text-cyber">
-              <span>LINKEDIN INTERFACE</span>
-              <a href="https://www.linkedin.com/in/akshay-santhosh-abb129300" target="_blank">LinkedIn Profile</a>
+              <span>GITHUB</span>
+              <span>akshaysanthosh2912-ops</span>
             </div>
-          </div>
-          <div class="hud-contact-card">
-            <div class="card-icon-cyber"><i class="fab fa-github"></i></div>
+          </a>
+          <a href="https://www.linkedin.com/in/akshay-santhosh-abb129300" target="_blank" rel="noopener" class="hud-contact-card hud-contact-card-glow hud-contact-linkedin">
+            <div class="card-icon-cyber card-icon-blue"><i class="fab fa-linkedin-in"></i></div>
             <div class="card-text-cyber">
-              <span>GITHUB REPOSITORIES</span>
-              <a href="https://github.com/akshaysanthosh2912-ops" target="_blank">GitHub Profile</a>
+              <span>LINKEDIN</span>
+              <span>akshay-santhosh-abb129300</span>
             </div>
-          </div>
-          <div class="hud-contact-card">
-            <div class="card-icon-cyber"><i class="fas fa-map-marker-alt"></i></div>
+          </a>
+          <div class="hud-contact-card hud-contact-card-glow">
+            <div class="card-icon-cyber card-icon-green"><i class="fas fa-map-marker-alt"></i></div>
             <div class="card-text-cyber">
-              <span>COORDINATE REGION</span>
-              <span>Kerala, India</span>
+              <span>LOCATION</span>
+              <span>Kerala, India 🇮🇳</span>
             </div>
           </div>
         </div>
 
+        <!-- Message Form -->
         <form id="contact-form" class="contact-form-cyber">
           <div class="form-group-cyber">
-            <input type="text" id="name-input" name="name" required placeholder=" " />
-            <label for="name-input"><i class="fas fa-user-tag"></i> INDENTIFIER NAME</label>
+            <input type="text" id="contact-name" name="name" placeholder=" " required autocomplete="name" />
+            <label for="contact-name"><i class="fas fa-user"></i> Your Name</label>
             <div class="border-glow-line"></div>
           </div>
           <div class="form-group-cyber">
-            <input type="email" id="email-input" name="email" required placeholder=" " />
-            <label for="email-input"><i class="fas fa-envelope-open"></i> EMAIL GATEWAY</label>
+            <input type="email" id="contact-email" name="email" placeholder=" " required autocomplete="email" />
+            <label for="contact-email"><i class="fas fa-envelope"></i> Your Email</label>
             <div class="border-glow-line"></div>
           </div>
           <div class="form-group-cyber">
-            <textarea id="message-input" name="message" required rows="4" placeholder=" "></textarea>
-            <label for="message-input"><i class="fas fa-comment-alt"></i> ENCODED MESSAGE</label>
+            <textarea id="contact-message" name="message" placeholder=" " rows="4" required></textarea>
+            <label for="contact-message"><i class="fas fa-comment-alt"></i> Your Message</label>
             <div class="border-glow-line"></div>
           </div>
           <button type="submit" class="btn btn-primary btn-full btn-cyber-pulse" id="contact-submit-btn">
-            <i class="fas fa-paper-plane"></i> DISPATCH TRANSMISSION
+            <i class="fas fa-paper-plane"></i> TRANSMIT MESSAGE
           </button>
         </form>
+
       </div>
     </div>
   </div>
 
-  <!-- Panel: Future Goals (Right Leg) -->
+  <!-- ================================================================
+       ===== GLASS PANEL: RIGHT LEG → GOALS =========================
+       ================================================================ -->
   <div class="holo-panel" id="panel-rightLeg">
-    <button class="panel-close-btn" data-node="rightLeg">&times;</button>
+    <button class="panel-close-btn" title="Close"><i class="fas fa-times"></i></button>
     <div class="panel-header">
       <h2><span class="cyber-num">08.</span> Mission Objectives</h2>
-      <p class="panel-subtitle">Plotting prospective roadmap goals...</p>
+      <div class="panel-subtitle">// FUTURE PARAMETERS — OPERATIONAL GOALS MAPPED</div>
     </div>
     <div class="panel-content">
       <div class="goals-timeline-cyber">
-        <!-- Goal 1 -->
-        <div class="goal-cyber-card">
-          <div class="goal-header-cyber">
-            <span class="goal-time-span">SHORT TERM [6 MO]</span>
-            <h3>Master Advanced Algorithms</h3>
-          </div>
-          <p>Gain mastery in complex data structures and competitive programming matrices using Python/C++ frameworks to
-            strengthen algorithmic fundamentals.</p>
+
+        <!-- Short Term -->
+        <div class="goals-section-label goals-label-short">
+          <i class="fas fa-clock"></i> SHORT-TERM OBJECTIVES
         </div>
-        <!-- Goal 2 -->
-        <div class="goal-cyber-card">
+
+        <div class="goal-cyber-card goal-short">
           <div class="goal-header-cyber">
-            <span class="goal-time-span">MEDIUM TERM [1-2 YR]</span>
-            <h3>Deep Dive into Deep Learning</h3>
+            <div class="goal-time-span"><i class="fas fa-calendar-alt"></i> 6 Months</div>
+            <h3><i class="fas fa-briefcase"></i> Secure an AI/ML Internship</h3>
           </div>
-          <p>Configure neural models, study computer vision architectures, and contribute to open-source natural
-            language processors.</p>
+          <p>Land a technical internship at a company working on AI, machine learning, or software engineering to gain real-world experience and mentorship.</p>
+          <div class="goal-progress-bar">
+            <div class="goal-progress-fill" style="width: 20%"></div>
+          </div>
+          <span class="goal-progress-label">In Progress — 20%</span>
         </div>
-        <!-- Goal 3 -->
-        <div class="goal-cyber-card">
+
+        <div class="goal-cyber-card goal-short">
           <div class="goal-header-cyber">
-            <span class="goal-time-span">MEDIUM TERM [2-3 YR]</span>
-            <h3>Full-Stack Deployment</h3>
+            <div class="goal-time-span"><i class="fas fa-calendar-alt"></i> 6 Months</div>
+            <h3><i class="fas fa-code-branch"></i> Open Source Contributions</h3>
           </div>
-          <p>Deploy production-level web/mobile platforms that resolve community problems. Secure research/engineering
-            internships in AI modules.</p>
+          <p>Contribute to open-source AI/ML repositories on GitHub — starting with bug fixes and progressing to feature development and documentation.</p>
+          <div class="goal-progress-bar">
+            <div class="goal-progress-fill" style="width: 10%"></div>
+          </div>
+          <span class="goal-progress-label">Starting — 10%</span>
         </div>
-        <!-- Goal 4 -->
-        <div class="goal-cyber-card">
+
+        <div class="goal-cyber-card goal-short">
           <div class="goal-header-cyber">
-            <span class="goal-time-span">LONG TERM [4+ YR]</span>
-            <h3>Innovate & Startup Ventures</h3>
+            <div class="goal-time-span"><i class="fas fa-calendar-alt"></i> 1 Year</div>
+            <h3><i class="fas fa-flask"></i> Build AI Research Projects</h3>
           </div>
-          <p>Pioneer startup ideas targeting AI assistant integration and secure tech leadership roles to impact digital
-            workflow scales.</p>
+          <p>Develop meaningful AI/ML projects — computer vision systems, NLP tools, and autonomous agents — to build a strong technical portfolio.</p>
+          <div class="goal-progress-bar">
+            <div class="goal-progress-fill" style="width: 30%"></div>
+          </div>
+          <span class="goal-progress-label">Progressing — 30%</span>
         </div>
+
+        <!-- Long Term -->
+        <div class="goals-section-label goals-label-long">
+          <i class="fas fa-rocket"></i> LONG-TERM OBJECTIVES
+        </div>
+
+        <div class="goal-cyber-card goal-long">
+          <div class="goal-header-cyber">
+            <div class="goal-time-span"><i class="fas fa-calendar-alt"></i> 3–4 Years</div>
+            <h3><i class="fas fa-brain"></i> Become an AI Research Engineer</h3>
+          </div>
+          <p>Work at the frontier of AI research — developing novel algorithms, training large models, and contributing to the scientific community through publications and patents.</p>
+        </div>
+
+        <div class="goal-cyber-card goal-long">
+          <div class="goal-header-cyber">
+            <div class="goal-time-span"><i class="fas fa-calendar-alt"></i> 4–5 Years</div>
+            <h3><i class="fas fa-file-alt"></i> Publish Research Papers</h3>
+          </div>
+          <p>Publish peer-reviewed research in top-tier AI conferences (NeurIPS, ICML, CVPR) on topics spanning computer vision, robotics, and intelligent systems.</p>
+        </div>
+
+        <div class="goal-cyber-card goal-long">
+          <div class="goal-header-cyber">
+            <div class="goal-time-span"><i class="fas fa-calendar-alt"></i> 5+ Years</div>
+            <h3><i class="fas fa-robot"></i> Robotics & AI Innovation</h3>
+          </div>
+          <p>Build autonomous robotic systems that integrate vision, language, and decision-making. Pioneer next-generation human-robot interaction paradigms.</p>
+        </div>
+
+        <div class="goal-cyber-card goal-long goal-ultimate">
+          <div class="goal-header-cyber">
+            <div class="goal-time-span"><i class="fas fa-calendar-alt"></i> 7+ Years</div>
+            <h3><i class="fas fa-building"></i> Build an AI Startup</h3>
+          </div>
+          <p>Launch a technology startup focused on democratizing AI — building products that solve meaningful real-world problems and positively impact millions of lives.</p>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- ===== Clickable Cert Image Preview Modal ===== -->
-  <div id="cert-image-modal" class="cyber-modal">
+  <!-- ================================================================
+       ===== CERTIFICATE IMAGE PREVIEW MODAL ==========================
+       ================================================================ -->
+  <div class="cyber-modal" id="cert-image-modal" onclick="closeCertImageModal()">
     <span class="cyber-modal-close" onclick="closeCertImageModal()">&times;</span>
     <div class="cyber-modal-frame">
-      <img class="cyber-modal-content" id="modal-cert-img" alt="Certificate Scan Preview">
+      <img class="cyber-modal-content" id="modal-cert-img" alt="Certificate Preview" />
       <div class="cyber-modal-caption" id="modal-cert-caption"></div>
     </div>
   </div>
 
-  <!-- ===== EmailJS Script Dependencies ===== -->
+  <!-- ===== MOBILE NAVIGATION OVERLAY ===== -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <span class="nav-logo">&lt;AS /&gt;</span>
+        <span class="mobile-menu-close" id="mobile-menu-close">&times;</span>
+      </div>
+      <ul class="mobile-menu-links">
+        <li><button class="mobile-link-btn active" data-node="home"><i class="fas fa-home"></i> Home</button></li>
+        <li><button class="mobile-link-btn" data-node="head"><i class="fas fa-user-astronaut"></i> About</button></li>
+        <li><button class="mobile-link-btn" data-node="brain"><i class="fas fa-brain"></i> Skills</button></li>
+        <li><button class="mobile-link-btn" data-node="rightChest"><i class="fas fa-code-branch"></i> Projects</button></li>
+        <li><button class="mobile-link-btn" data-node="leftChest"><i class="fas fa-certificate"></i> Credentials</button></li>
+        <li><button class="mobile-link-btn" data-node="rightHand"><i class="fas fa-file-alt"></i> Resume</button></li>
+        <li><button class="mobile-link-btn" data-node="coreReactor"><i class="fas fa-route"></i> Journey</button></li>
+        <li><button class="mobile-link-btn" data-node="rightLeg"><i class="fas fa-bullseye"></i> Goals</button></li>
+        <li><button class="mobile-link-btn" data-node="leftLeg"><i class="fas fa-satellite-dish"></i> Contact</button></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <span>Akshai Santhosh · AI Engineer Portfolio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PREMIUM FOOTER ===== -->
+  <div class="premium-footer" id="premium-footer">
+    <div class="footer-inner">
+      <span class="footer-logo">&lt;AS /&gt;</span>
+      <span class="footer-mid">Built with <i class="fas fa-heart footer-heart"></i> using HTML · CSS · JavaScript · Three.js &nbsp;·&nbsp; © 2026 Akshai Santhosh</span>
+      <div class="footer-socials">
+        <a href="https://github.com/akshaysanthosh2912-ops" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/akshay-santhosh-abb129300" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:akshaysanthosh2912@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    (function () {
-      emailjs.init({
-        publicKey: "I6N_X6w9ooTRXhF-q",
-      });
+    (function() {
+      emailjs.init({ publicKey: "I6N_X6w9ooTRXhF-q" });
     })();
   </script>
-
-  <!-- ===== CDN dependencies for Three.js, OrbitControls and GSAP ===== -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="script.js"></script>
 </body>
-
 </html>
